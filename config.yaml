@@ -1,0 +1,59 @@
+# Paper trader configuration — all strategy parameters live here.
+# See STRATEGY.md for the rationale behind each choice.
+
+account:
+  starting_cash: 20000.00
+
+risk:
+  ballast_symbol: SPY
+  ballast_target_pct: 0.20        # permanent broad-index allocation
+  ballast_band_low: 0.15          # rebalance ballast only outside this band
+  ballast_band_high: 0.25
+  target_positions: 12            # stock sleeve position count target
+  max_positions: 15
+  max_position_pct: 0.10          # of total equity, measured at purchase
+  trim_position_pct: 0.14         # trim any position that grows beyond this
+  max_sector_pct: 0.25            # per GICS sector, at purchase
+  min_cash_buffer_pct: 0.05       # settled-cash floor never spent on entries
+  trailing_stop_pct: 0.10         # off highest close since entry
+  drawdown_no_buys: 0.07          # vs equity high-water mark: stop opening
+  drawdown_halve: 0.12            # cut stock sleeve to half
+  drawdown_liquidate: 0.15        # go to cash, halt until manual resume
+  max_new_positions_per_day: 2
+  min_holding_days: 3             # trading days; stop-loss exits are exempt
+
+universe:
+  min_price: 10.0
+  min_avg_dollar_volume: 10000000 # 20-day average daily dollar volume
+  max_annualized_vol: 0.50        # 30-day realized, annualized
+
+signals:
+  momentum_short_days: 63         # ~3 months
+  momentum_long_days: 126         # ~6 months
+  momentum_skip_days: 5           # skip most recent week (reversal noise)
+  trend_ma_days: 50               # entry requires price > rising 50DMA
+  ma_rising_lookback: 10
+  exit_ma_days: 100               # exit on close below 100DMA
+  entry_rank_max: 50              # only buy names ranked in the top 50
+  exit_rank_min: 150              # exit names that decay past rank 150
+
+fills:
+  impact_coefficient: 1.0         # k in sqrt market-impact model
+  max_participation: 0.10         # max fraction of trailing hour volume
+  fallback_half_spread_bps: 5.0   # used when no sane quote is available
+  max_half_spread_bps: 75.0       # sanity cap on quoted spreads (IEX quirks)
+  marketable_limit_buffer: 0.001  # entries: limit = ask * (1 + buffer)
+
+tax:
+  short_term_rate: 0.24           # assumed federal marginal bracket
+  long_term_rate: 0.15
+  dividend_rate: 0.15             # all dividends treated as qualified
+  # No state tax. ST/LT net against each other per IRS ordering; net losses
+  # carry forward within the sim. The $3k ordinary-income offset is ignored.
+
+benchmark:
+  symbol: SPY                     # buy-and-hold, dividends reinvested
+
+metrics:
+  risk_free_rate: 0.04            # flat annual assumption for Sharpe
+  trading_days_per_year: 252
