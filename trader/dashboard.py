@@ -3,12 +3,14 @@ served by GitHub Pages. Self-contained — the template embeds all data as
 JSON, so the page needs no server or external requests."""
 import json
 import os
-from datetime import datetime, timezone
+from datetime import date as date_cls, datetime, timedelta, timezone
 from zoneinfo import ZoneInfo
 
 from . import config, db, ledger, metrics, tax, universe
 
 ET = ZoneInfo("America/New_York")
+HISTORY_DAYS = 200        # calendar days of price history per stock
+MAX_HISTORY_SYMBOLS = 30  # bound the embedded payload
 
 
 def _et(ts_iso):
@@ -22,7 +24,76 @@ def _et(ts_iso):
         return ts_iso
 
 
-def build_data(conn, cfg, last_prices, today):
+def _stock_histories(conn, cfg, api, positions, last_prices, today):
+    """Per-symbol price history + strategy context for the click-through
+    charts. Best-effort: returns {} if no API handle or the fetch fails."""
+    if api is None:
+        return {}
+    ballast = cfg["risk"]["ballast_symbol"]
+    syms = set(positions) | {ballast}
+    for r in conn.execute(
+        "SELECT DISTINCT symbol FROM trades ORDER BY id DESC LIMIT 40"
+    ).fetchall():
+        syms.add(r["symbol"])
+    syms = sorted(syms)[:MAX_HISTORY_SYMBOLS]
+    if not syms:
+        return {}
+    start = (date_cls.fromisoformat(today)
+             - timedelta(days=HISTORY_DAYS)).isoformat()
+    end = (date_cls.fromisoformat(today) - timedelta(days=1)).isoformat()
+    try:
+        bars = api.daily_bars(syms, f"{start}T00:00:00Z", f"{end}T23:59:59Z")
+    except Exception:
+        return {}
+
+    names = {u["symbol"]: u["name"] for u in universe.load()}
+    sectors = universe.sector_map()
+    sig_date = conn.execute("SELECT MAX(signal_date) d FROM signals").fetchone()["d"]
+
+    out = {}
+    for sym in syms:
+        b = bars.get(sym) or []
+        series = [[x["t"][:10], round(x["c"], 2)] for x in b]
+        live = last_prices.get(sym)
+        if live and (not series or series[-1][0] < today):
+            series.append([today, round(live, 2)])
+        if len(series) < 2:
+            continue
+        closes = [c for _, c in series]
+        ma50 = [round(sum(closes[i - 49:i + 1]) / 50, 2) if i >= 49 else None
+                for i in range(len(closes))]
+        sig = None
+        if sig_date:
+            row = conn.execute(
+                "SELECT rank, momentum, eligible, veto_reason, ann_vol "
+                "FROM signals WHERE signal_date=? AND symbol=?",
+                (sig_date, sym),
+            ).fetchone()
+            if row:
+                sig = {"rank": row["rank"], "momentum": row["momentum"],
+                       "eligible": bool(row["eligible"]),
+                       "veto": row["veto_reason"], "ann_vol": row["ann_vol"]}
+        trades = [{"d": t["trade_date"], "side": t["side"],
+                   "price": t["fill_price"], "qty": t["qty"]}
+                  for t in conn.execute(
+                      "SELECT trade_date, side, fill_price, qty FROM trades "
+                      "WHERE symbol=? ORDER BY id", (sym,)).fetchall()]
+        st = conn.execute("SELECT stop_price FROM position_state WHERE symbol=?",
+                          (sym,)).fetchone()
+        out[sym] = {
+            "name": "S&P 500 ETF (index ballast)" if sym == ballast
+                    else names.get(sym, ""),
+            "sector": "Index fund" if sym == ballast else sectors.get(sym, ""),
+            "series": series, "ma50": ma50,
+            "signal": sig, "trades": trades,
+            "stop": round(st["stop_price"], 2)
+                    if st and sym in positions else None,
+            "held": sym in positions,
+        }
+    return out
+
+
+def build_data(conn, cfg, last_prices, today, api=None):
     positions = ledger.positions(conn)
     settled = ledger.settled_cash(conn, today)
     total_cash = ledger.total_cash(conn)
@@ -144,11 +215,12 @@ def build_data(conn, cfg, last_prices, today):
                           "lt": cfg["tax"]["long_term_rate"],
                           "div": cfg["tax"]["dividend_rate"]}},
         "benchmark": {"value": bench_row["benchmark_value"] if bench_row else None},
+        "stocks": _stock_histories(conn, cfg, api, positions, last_prices, today),
     }
 
 
-def generate(conn, cfg, last_prices, today):
-    data = build_data(conn, cfg, last_prices, today)
+def generate(conn, cfg, last_prices, today, api=None):
+    data = build_data(conn, cfg, last_prices, today, api=api)
     tpl_path = os.path.join(os.path.dirname(os.path.abspath(__file__)),
                             "dashboard_template.html")
     with open(tpl_path, "r", encoding="utf-8") as f:

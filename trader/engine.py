@@ -254,7 +254,8 @@ def _run_hourly(ctx):
     _snapshot(ctx, "intraday")
     # Keep the report and dashboard fresh every hour, not just at EOD.
     positions = ledger.positions(conn)
-    report.generate(conn, cfg, {s: ctx.price(s) for s in positions}, today)
+    report.generate(conn, cfg, {s: ctx.price(s) for s in positions}, today,
+                    api=ctx.api)
     db.set_meta(conn, "last_hourly_ts", ts)
     conn.commit()
 
@@ -528,7 +529,7 @@ def _run_eod(ctx):
         db.set_meta(conn, "hwm", equity)
 
     last_prices = {s: ctx.price(s) for s in positions}
-    report.generate(conn, cfg, last_prices, today)
+    report.generate(conn, cfg, last_prices, today, api=ctx.api)
     db.set_meta(conn, "eod_done", today)
     ctx.log("system", None, {"event": "eod_complete", "equity": equity,
                              "hwm": max(hwm, equity)})
@@ -539,4 +540,4 @@ def _regenerate_report(ctx):
     positions = ledger.positions(ctx.conn)
     ctx.fetch_quotes(list(positions) + [ctx.ballast])
     last_prices = {s: ctx.price(s) for s in positions}
-    report.generate(ctx.conn, ctx.cfg, last_prices, ctx.today)
+    report.generate(ctx.conn, ctx.cfg, last_prices, ctx.today, api=ctx.api)

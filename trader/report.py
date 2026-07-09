@@ -16,7 +16,7 @@ def _usd(x):
     return f"${x:,.2f}" if x is not None else "—"
 
 
-def generate(conn, cfg, last_prices, today):
+def generate(conn, cfg, last_prices, today, api=None):
     positions = ledger.positions(conn)
     settled = ledger.settled_cash(conn, today)
     total_cash = ledger.total_cash(conn)
@@ -143,7 +143,7 @@ def generate(conn, cfg, last_prices, today):
         f.write("\n".join(lines) + "\n")
 
     _equity_svg(conn, cfg)
-    dashboard.generate(conn, cfg, last_prices, today)
+    dashboard.generate(conn, cfg, last_prices, today, api=api)
 
 
 def _equity_svg(conn, cfg):
