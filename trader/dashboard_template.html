@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Paper Trader — Live Dashboard</title>
+<style>
+:root{
+  --surface-1:#fcfcfb; --page:#f9f9f7;
+  --ink:#0b0b0b; --ink-2:#52514e; --muted:#898781;
+  --grid:#e1e0d9; --axis:#c3c2b7; --border:rgba(11,11,11,.10);
+  --series-1:#2a78d6; --bench:#898781;
+  --good:#006300; --bad:#d03b3b; --warn:#b97a00;
+  --chip:#eef2f8; --panel-shadow:rgba(0,0,0,.18);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --surface-1:#1a1a19; --page:#0d0d0d;
+    --ink:#ffffff; --ink-2:#c3c2b7; --muted:#898781;
+    --grid:#2c2c2a; --axis:#383835; --border:rgba(255,255,255,.10);
+    --series-1:#3987e5; --bench:#898781;
+    --good:#0ca30c; --bad:#e66767; --warn:#fab219;
+    --chip:#24303f; --panel-shadow:rgba(0,0,0,.6);
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:var(--ink);
+  font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+.wrap{max-width:1080px;margin:0 auto;padding:20px 16px 80px}
+h1{font-size:22px;margin:0 0 2px}
+h2{font-size:16px;margin:0 0 12px}
+.sub{color:var(--ink-2);font-size:13px;margin-bottom:20px}
+.card{background:var(--surface-1);border:1px solid var(--border);
+  border-radius:10px;padding:16px;margin-bottom:16px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:12px;margin-bottom:16px}
+.tile{background:var(--surface-1);border:1px solid var(--border);
+  border-radius:10px;padding:12px 14px}
+.tile .lbl{font-size:12px;color:var(--ink-2)}
+.tile .val{font-size:21px;font-weight:650;margin-top:2px}
+.tile .sm{font-size:12px;color:var(--muted);margin-top:2px}
+.pos{color:var(--good)} .neg{color:var(--bad)}
+.state-chip{display:inline-block;font-size:12px;font-weight:600;
+  padding:2px 10px;border-radius:999px;background:var(--chip)}
+/* learnable terms */
+[data-term]{border-bottom:1px dotted var(--muted);cursor:help}
+[data-term]:hover{border-bottom-color:var(--series-1);color:var(--series-1)}
+/* tables */
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th{color:var(--ink-2);font-weight:600;text-align:left;padding:7px 8px;
+  border-bottom:1px solid var(--axis);white-space:nowrap}
+td{padding:7px 8px;border-bottom:1px solid var(--grid);
+  font-variant-numeric:tabular-nums}
+tr:last-child td{border-bottom:none}
+.num{text-align:right}
+th.num{text-align:right}
+.badge{display:inline-block;font-size:11.5px;font-weight:650;padding:1px 8px;
+  border-radius:4px;letter-spacing:.02em}
+.badge.buy{background:rgba(42,120,214,.14);color:var(--series-1)}
+.badge.sell{background:rgba(208,59,59,.12);color:var(--bad)}
+.reason{color:var(--ink-2);font-size:12.5px;max-width:420px}
+.scroll-x{overflow-x:auto}
+/* chart */
+.legend{display:flex;gap:18px;font-size:13px;margin-bottom:8px;flex-wrap:wrap}
+.legend button{all:unset;cursor:pointer;display:flex;align-items:center;gap:7px;
+  color:var(--ink-2)}
+.legend button.off{opacity:.35}
+.legend .swatch{width:18px;height:0;border-top:3px solid var(--series-1);
+  border-radius:2px}
+.legend .swatch.dash{border-top:3px dashed var(--bench)}
+#chart{width:100%;height:auto;display:block}
+.tip{position:fixed;pointer-events:none;background:var(--surface-1);
+  border:1px solid var(--border);border-radius:8px;padding:8px 11px;
+  font-size:12.5px;box-shadow:0 4px 14px var(--panel-shadow);display:none;z-index:40}
+.tip b{font-variant-numeric:tabular-nums}
+/* decisions */
+.feed{list-style:none;margin:0;padding:0;font-size:13.5px}
+.feed li{padding:8px 0;border-bottom:1px solid var(--grid);display:flex;gap:10px}
+.feed li:last-child{border-bottom:none}
+.feed .when{color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.kind{font-size:11px;font-weight:700;padding:1px 7px;border-radius:4px;
+  background:var(--chip);color:var(--ink-2);white-space:nowrap;height:fit-content}
+/* learn panel */
+#panel{position:fixed;top:0;right:0;height:100%;width:min(430px,94vw);
+  background:var(--surface-1);border-left:1px solid var(--border);
+  box-shadow:-8px 0 30px var(--panel-shadow);transform:translateX(105%);
+  transition:transform .18s ease;z-index:50;overflow-y:auto;padding:22px}
+#panel.open{transform:none}
+#panel h3{margin:0 40px 10px 0;font-size:18px}
+#panel h4{font-size:12px;text-transform:uppercase;letter-spacing:.06em;
+  color:var(--muted);margin:16px 0 4px}
+#panel p{margin:4px 0;font-size:14px;color:var(--ink-2)}
+#panel .close{position:absolute;top:14px;right:14px;all:unset;cursor:pointer;
+  font-size:22px;color:var(--muted);padding:4px 10px}
+#panel .close:hover{color:var(--ink)}
+.takeaway{border-left:3px solid var(--series-1);padding:2px 0 2px 12px;margin-top:6px}
+.gloss-index{display:flex;flex-wrap:wrap;gap:8px}
+.gloss-index button{all:unset;cursor:pointer;font-size:13px;padding:4px 12px;
+  border:1px solid var(--border);border-radius:999px;color:var(--ink-2);
+  background:var(--surface-1)}
+.gloss-index button:hover{color:var(--series-1);border-color:var(--series-1)}
+.hint{background:var(--chip);border-radius:8px;padding:10px 14px;font-size:13px;
+  color:var(--ink-2);margin-bottom:16px}
+@media (max-width:640px){ .reason{max-width:200px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Paper Trader</h1>
+  <div class="sub" id="sub"></div>
+  <div class="hint">💡 Anything with a <span style="border-bottom:1px dotted var(--muted)">dotted underline</span>
+    is clickable — it opens a plain-English explanation of what the term means,
+    how it works in this simulator, and what it should mean for you when real
+    money is involved.</div>
+
+  <div class="tiles" id="tiles"></div>
+
+  <div class="card">
+    <h2>Equity curve — <span data-term="equity">portfolio</span> vs
+      <span data-term="buy-and-hold">SPY buy &amp; hold</span></h2>
+    <div class="legend" id="legend"></div>
+    <svg id="chart" viewBox="0 0 960 380" role="img"
+      aria-label="Equity of the portfolio and the SPY benchmark over time"></svg>
+    <div class="sub" style="margin:8px 0 0">Hover the chart for exact values.
+      Click a legend item to show/hide that line. Dots mark
+      <span data-term="eod">end-of-day snapshots</span>; the line between them is
+      intraday.</div>
+  </div>
+
+  <div class="card">
+    <h2>Open positions</h2>
+    <div class="scroll-x"><table id="positions">
+      <thead><tr>
+        <th data-term="position">Symbol</th><th class="num">Qty</th>
+        <th class="num" data-term="cost-basis">Avg basis</th>
+        <th class="num">Last</th><th class="num">Value</th>
+        <th class="num" data-term="unrealized">Unrealized</th>
+        <th class="num" data-term="stop-loss">Stop</th>
+        <th data-term="sector-cap">Sector</th>
+      </tr></thead><tbody></tbody>
+    </table></div>
+  </div>
+
+  <div class="card">
+    <h2>Trade history</h2>
+    <div class="sub" style="margin-bottom:8px">Every fill, newest first. Sell rows
+      show the <span data-term="realized">realized gain</span> for that sale;
+      costs are the <span data-term="spread">spread</span> and
+      <span data-term="slippage">market impact</span> paid on the fill.</div>
+    <div class="scroll-x"><table id="trades">
+      <thead><tr>
+        <th>Date (ET)</th><th>Side</th><th>Symbol</th><th class="num">Qty</th>
+        <th class="num">Fill price</th><th class="num">Total</th>
+        <th class="num">Costs</th><th class="num">Realized P&amp;L</th>
+        <th data-term="holding-period">Held</th><th>Why</th>
+      </tr></thead><tbody></tbody>
+    </table></div>
+  </div>
+
+  <div class="card">
+    <h2>Performance &amp; risk</h2>
+    <div class="scroll-x"><table id="metrics">
+      <thead><tr><th>Metric</th><th class="num">Portfolio</th>
+      <th class="num" data-term="benchmark">SPY benchmark</th></tr></thead>
+      <tbody></tbody>
+    </table></div>
+  </div>
+
+  <div class="card">
+    <h2>Taxes (simulated)</h2>
+    <div id="tax"></div>
+  </div>
+
+  <div class="card">
+    <h2>Recent decisions</h2>
+    <div class="sub" style="margin-bottom:8px">The agent logs its reasoning every
+      hour — including the decision to do nothing, which is most hours by design.</div>
+    <ul class="feed" id="feed"></ul>
+  </div>
+
+  <div class="card">
+    <h2>Investing glossary</h2>
+    <div class="sub" style="margin-bottom:10px">Everything the dashboard can teach, in one place.</div>
+    <div class="gloss-index" id="gloss-index"></div>
+  </div>
+</div>
+
+<div class="tip" id="tip"></div>
+<aside id="panel" aria-label="Explanation panel">
+  <button class="close" id="panel-close" aria-label="Close">×</button>
+  <div id="panel-body"></div>
+</aside>
+
+<script>
+const DATA = __DATA__;
+
+const GLOSSARY = {
+"equity":{t:"Equity (account value)",w:"Everything you own in the account added up: cash plus the market value of your stock positions, minus what's set aside for taxes. It's THE number — every other metric is derived from how equity changes over time.",h:"Computed every run as cash + positions − tax reserve. The starting equity was $20,000.",r:"With real money, track equity (total value), not individual winners and losers. A portfolio where one stock doubled but equity fell 10% is a losing portfolio. Brokers show this as 'account value'."},
+"total-return":{t:"Total return",w:"How much the account has grown or shrunk since the start, as a percentage. +10% on $20,000 means you'd have $22,000.",h:"Measured from the $20,000 inception on the first trading day, after all trading costs and simulated taxes.",r:"Always judge returns AGAINST an alternative (see: benchmark) and over meaningful time. +8% sounds great — unless the S&P did +12% while you took more risk."},
+"benchmark":{t:"Benchmark",w:"The 'what if I had done nothing clever' comparison. Ours: putting the same $20,000 into an S&P 500 fund on day one and never touching it.",h:"The dashed gray line. Same start date, same dollars, dividends reinvested, taxed the same way on dividends.",r:"This is the single most humbling — and useful — habit in investing. Most professionals fail to beat a simple index fund over 10+ years. If a strategy (or advisor) can't beat buy-and-hold after costs and taxes, the index fund wins by being free and effortless."},
+"buy-and-hold":{t:"Buy and hold (SPY)",w:"Buying a broad index fund and simply holding it for years. SPY is the oldest S&P 500 ETF — one share buys a tiny slice of the 500 biggest US companies.",h:"The benchmark line: 26.9 shares of SPY bought at inception, dividends reinvested, never sold.",r:"Buy-and-hold of index funds is the default answer for real money — low cost, low tax, no decisions, and historically ~10%/yr over long periods (with gut-wrenching drops along the way). Any active strategy must justify itself against this."},
+"settled-cash":{t:"Settled cash",w:"Cash that's fully yours to spend right now. When you sell a stock, US markets take one business day (called T+1) to actually move the money — until then the proceeds exist but aren't 'settled'.",h:"The agent only ever buys with settled cash, so it can never spend money it doesn't have yet.",r:"In a real cash account, spending unsettled money and selling again too soon is a 'good-faith violation' — brokers restrict your account after a few. Real lesson: know which of your cash is actually available before you trade."},
+"unsettled-cash":{t:"Unsettled cash (T+1)",w:"Money from a sale (or dividend) that's on its way but hasn't legally arrived. Stock sales settle the next business day — 'T+1' means trade date plus one.",h:"Shown separately so you can see the pipeline. It becomes settled cash the next trading day.",r:"Settlement is invisible until it bites you. If you sell Monday and want to withdraw Tuesday morning — you can't. Plan real-money moves around it."},
+"tax-reserve":{t:"Tax reserve",w:"Money mentally set aside to pay taxes on gains you've already locked in. Profits from selling aren't fully yours — the IRS gets a cut at tax time.",h:"The simulator reserves 24% of short-term gains, 15% of long-term gains, and 15% of dividends the moment they're realized, and won't invest that money.",r:"The #1 rookie real-money mistake: spending or reinvesting the full sale proceeds, then facing a tax bill in April with nothing set aside. Reserve as you go — exactly like this."},
+"capital-gains":{t:"Short-term vs long-term gains",w:"Profit from selling is taxed differently by holding time. Held ≤ 1 year: 'short-term', taxed like salary (24% assumed here). Held > 1 year: 'long-term', taxed at a discount (15%).",h:"Every sale is classified per lot using exact purchase dates.",r:"This is a massive real-money lever: on a $10,000 gain, the difference between 24% and 15% is $900 for doing nothing but waiting. Frequent trading doesn't just risk being wrong — it guarantees the worse tax rate when you're right."},
+"wash-sale":{t:"Wash sale rule",w:"You can't sell a stock at a loss for the tax deduction and immediately buy it back. If you repurchase within 30 days (either side of the sale), the loss is 'disallowed' — it gets folded into the new shares' cost instead of reducing this year's taxes.",h:"Fully modeled: disallowed losses raise the replacement lot's basis and extend its holding clock.",r:"Real brokers report wash sales to the IRS automatically — you can't hide from it. If you harvest a loss for taxes, stay out of that stock (and near-identical funds) for 31 days."},
+"dividend":{t:"Dividend",w:"A cash payout some companies make to shareholders, usually quarterly. You must own the stock before its 'ex-date' to receive it; the cash arrives later on the 'pay date'.",h:"Tracked per position with real ex/pay dates; the benchmark reinvests its SPY dividends automatically.",r:"Dividends feel like free money but are taxed the year received, and stock prices drop by the dividend amount on the ex-date — there's no free lunch. Reinvested dividends are a huge share of long-run index returns."},
+"cost-basis":{t:"Cost basis",w:"What you actually paid per share, including the bad prices you got from spreads. Your profit is measured against this, and so are your taxes.",h:"Tracked per purchase 'lot' at the exact fill price. Wash sales can adjust it upward.",r:"Keep records (brokers do this now, but verify after transfers). Basis errors mean you pay tax on money you never made."},
+"fifo-lot":{t:"Lots & FIFO",w:"Each separate purchase is a 'lot' with its own price and date. When you sell part of a position, some rule decides WHICH shares you sold — FIFO means First In, First Out: oldest shares go first.",h:"Strict FIFO, like most brokers' default.",r:"Real brokers let you choose lots when selling ('specific identification'). Choosing wisely — selling the high-basis or long-term lot — can cut your tax bill meaningfully. Set this up before you need it."},
+"position":{t:"Position",w:"Your total holding in one stock — all lots combined. 'Opening a position' = first buy; 'closing' = selling all of it.",h:"The strategy holds 10–15 stock positions plus the SPY ballast.",r:"Think in positions, not trades: before opening one, know your exit plan — what evidence would make you sell? Deciding after you're emotionally invested is how losses grow."},
+"unrealized":{t:"Unrealized gain/loss",w:"Paper profit: what you'd gain or lose if you sold right now. It isn't real (or taxed) until you actually sell — that's 'realizing' it.",h:"Positions table, priced from live quotes.",r:"Two real-money traps: treating unrealized gains as spendable (they can vanish), and refusing to realize losses because selling 'makes it real'. The market doesn't know your cost basis; only the future matters."},
+"realized":{t:"Realized gain/loss",w:"Locked-in profit or loss from an actual sale. This is what gets taxed.",h:"Trade history shows it per sale, split short/long-term for taxes.",r:"Your realized track record — including every small loss you took on purpose — is the honest measure of your trading. Judge yourself on it, not on the winners you're still holding."},
+"stop-loss":{t:"Trailing stop-loss",w:"A standing order: 'if the price falls to X, sell automatically.' A TRAILING stop ratchets X upward as the stock rises — it locks in progress and caps how much any position can give back (here: 10% from its high).",h:"Every stock position has one, updated after each close. Fills model gaps: if bad news makes a stock open far below your stop, you get the worse opening price — like real life.",r:"Stops enforce the discipline humans lack in the moment. But know the failure mode: gap-downs blow through stops (you're not guaranteed the stop price), and tight stops get shaken out by normal wiggles. They manage risk; they don't eliminate it."},
+"drawdown":{t:"Drawdown",w:"How far the account has fallen from its best-ever value. Peak $21,000 → now $19,500 = 7.1% drawdown. It measures pain, and pain drives bad decisions.",h:"The agent has automatic circuit breakers: −7% stops new buying, −12% halves the stock sleeve, −15% liquidates everything and waits for a human.",r:"Decide your real-money drawdown plan BEFORE you invest, in writing. The investors who get hurt worst are the ones who discover their pain threshold at −30% and sell at the exact bottom. Rules made calm beat decisions made scared."},
+"high-water-mark":{t:"High-water mark",w:"The highest value the account has ever reached. Drawdown is always measured from here, not from where you started.",h:"Updated at each close; the drawdown brakes key off it.",r:"Useful mental tool for real money: 'am I below my high-water mark?' is a calmer question than 'am I losing?' — every long-term investor spends a lot of time below their peak. That's normal, not failure."},
+"sharpe":{t:"Sharpe ratio",w:"Return per unit of risk taken. It asks: did you get paid for the rollercoaster? Roughly (your return − what cash pays) ÷ volatility. Above ~1 is good; below 0.5, the stress probably wasn't worth it.",h:"Computed from daily equity changes, assuming cash earns 4%/yr.",r:"Compare strategies by Sharpe, not raw return. A 15% return with wild swings can be worse than 10% earned smoothly — because in real life, the wild version makes you sell at the bottom, and leverage-able smooth returns compound better."},
+"volatility":{t:"Volatility",w:"How much the value bounces around day to day, annualized. The S&P 500 runs ~15–20% in normal times. Higher volatility = bigger swings both ways.",h:"Measured from daily snapshots; the strategy also refuses stocks whose own volatility exceeds 50%.",r:"Volatility is the price of returns — stocks beat savings accounts BECAUSE they can drop 30%. The real question is how much volatility you can hold through without panic-selling. Be honest; most people overestimate it."},
+"max-drawdown":{t:"Max drawdown",w:"The single worst peak-to-trough fall the account has ever had. The most visceral risk number: 'at the worst moment, how much of my money had melted?'",h:"Computed over the whole history for both portfolio and benchmark.",r:"When evaluating any real investment or strategy, find its historical max drawdown and imagine holding through it with your actual savings. The S&P 500's was −55% (2008–09). If you can't sit through that, own less stock — BEFORE the crash."},
+"momentum":{t:"Momentum",w:"The tendency of stocks that performed well over the past few months to keep doing well for a while. One of the most-documented patterns in market history — though it works until it suddenly, violently doesn't ('momentum crashes').",h:"Stocks are ranked by blended 3- and 6-month returns (skipping the latest week); the agent buys top-50 names and drops those that decay past rank 150.",r:"Momentum is a real, Nobel-adjacent effect, but DIY momentum trading eats costs and taxes (all short-term gains). If you want the effect with real money, low-cost momentum-factor ETFs exist. Never confuse 'it went up' with 'it must keep going up' for a single stock."},
+"trend-filter":{t:"Trend filter (moving average)",w:"A moving average smooths price over N days. Requiring price above a rising 50-day average is a simple 'is the tide coming in?' test that keeps you out of falling knives.",h:"Entries require price above a rising 50-day average; a close below the 100-day average forces an exit.",r:"Simple trend rules won't beat the market, but they're excellent guardrails against buying something in free-fall because it 'looks cheap'. Cheap stocks in downtrends usually get cheaper."},
+"ballast":{t:"Index ballast / diversification",w:"A permanent ~20% chunk in a broad index fund. It dilutes stock-picking risk and drags the portfolio toward the market's return — boring on purpose.",h:"~20% in SPY, rebalanced only when it drifts outside 15–25%.",r:"Scale this idea UP for real money: most people should invert it — 80%+ boring index funds, and if you want to pick stocks, a small 'play' sleeve you can afford to be wrong with. Diversification is the only free lunch in finance."},
+"sector-cap":{t:"Sector concentration cap",w:"A limit (25% here) on how much can sit in one industry. Stocks in the same sector fall together — five tech stocks is closer to one big bet than five bets.",h:"Enforced at purchase time using each stock's GICS sector.",r:"Check your real portfolio's sector weights — including your employer's stock and your industry-heavy income. Tech workers holding mostly tech stocks are doubling down on one economic outcome without realizing it."},
+"position-sizing":{t:"Position sizing",w:"Deciding how MUCH to buy — arguably more important than what to buy. This strategy sizes positions smaller when a stock is more volatile, so each holding contributes similar risk.",h:"~6.7% of equity per position baseline, scaled down for choppier stocks, hard-capped at 10%.",r:"The real-money rule of thumb: size positions so that being completely wrong on one of them is annoying, not catastrophic. If one holding failing would change your life plans, it's too big."},
+"spread":{t:"Bid-ask spread",w:"At any moment there are two prices: what buyers offer (bid) and what sellers ask. You buy at the higher ask and sell at the lower bid — the gap is a cost you pay instantly, twice per round trip.",h:"Every simulated fill pays the real live spread. It's listed per trade in the Costs column.",r:"Spreads are why day-trading quietly bleeds money even when you're 'breaking even'. For real money: prefer liquid stocks/ETFs with penny spreads, and use limit orders on anything thinly traded."},
+"slippage":{t:"Slippage / market impact",w:"Big orders move the price against you — buying pushes the price up as you buy. Small fish barely feel it; it's why huge funds can't nimbly trade small stocks.",h:"Modeled as growing with order size and the stock's volatility relative to its typical daily dollar volume.",r:"For personal-sized accounts in large stocks this is tiny — but it teaches the general rule: the market charges you to act. Every layer of activity (spread + slippage + taxes) raises the bar your ideas must clear."},
+"order-types":{t:"Market / limit / stop orders",w:"Market order: fill me now at whatever the price is (fast, price uncertain). Limit order: fill me only at my price or better (price certain, fill uncertain). Stop order: becomes a market order once price crosses a trigger — used for stop-losses.",h:"Entries use limit orders pegged near the ask; exits use market orders; every position has a standing stop.",r:"Default to limit orders with real money, especially outside the biggest stocks and near the open/close when prices are jumpy. A market order in a thin stock can fill shockingly far from the last price you saw."},
+"eod":{t:"End-of-day snapshot",w:"The account's official daily closing value, recorded after the market closes at 4:00 PM ET.",h:"All performance metrics (return, Sharpe, drawdown) are computed from these daily closes; intraday points just show today's movement.",r:"Daily (or less frequent!) check-ins beat minute-by-minute watching. Real investors who check prices constantly trade more and earn less — the data on this is brutal."},
+"holding-period":{t:"Holding period",w:"How long you owned shares before selling. Drives your tax rate (>1 year = the cheaper long-term rate) and says a lot about whether you're investing or gambling.",h:"Shown per sale in trade history; the strategy enforces a 3-day minimum except for stop-losses.",r:"Track your average holding period with real money. If it's measured in days, be honest with yourself: that's trading, it's taxed at the worst rate, and the evidence says most people lose at it."},
+"market-hours":{t:"Market hours & sessions",w:"US stocks trade 9:30 AM–4:00 PM Eastern, weekdays, minus holidays (plus thinner pre/after-market sessions). Prices gap between sessions as news lands overnight.",h:"The agent only acts during regular hours, using the official exchange calendar.",r:"Overnight gaps are why stop-losses can't fully protect you and why earnings announcements (usually after close) are risky to hold through with oversized positions."},
+"day-trading":{t:"Churn & overtrading",w:"Every trade costs spread + slippage now and worse taxes later, so activity itself is a headwind. 'Churn' is trading more than your edge justifies.",h:"Hard limits: max 2 new positions/day, 3-day minimum hold. Most hourly runs conclude 'do nothing' — on purpose.",r:"The most reliable real-money finding in behavioral finance: the more retail investors trade, the worse they do. Make doing nothing your default; demand strong evidence to act."}
+};
+
+/* ---------- helpers ---------- */
+const $ = s => document.querySelector(s);
+const usd = x => x==null ? "—" : x.toLocaleString("en-US",{style:"currency",currency:"USD"});
+const pct = (x,d=2) => x==null ? "—" : (x*100).toFixed(d)+"%";
+const signCls = x => x>0 ? "pos" : x<0 ? "neg" : "";
+const esc = s => String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+/* ---------- learn panel ---------- */
+function openTerm(key){
+  const g = GLOSSARY[key]; if(!g) return;
+  $("#panel-body").innerHTML =
+    `<h3>${esc(g.t)}</h3>
+     <h4>What it is</h4><p>${esc(g.w)}</p>
+     <h4>In this simulator</h4><p>${esc(g.h)}</p>
+     <h4>When it's real money</h4><p class="takeaway">${esc(g.r)}</p>`;
+  $("#panel").classList.add("open");
+}
+document.addEventListener("click", e=>{
+  const t = e.target.closest("[data-term]");
+  if(t){ openTerm(t.dataset.term); return; }
+  if(!e.target.closest("#panel")) $("#panel").classList.remove("open");
+});
+$("#panel-close").addEventListener("click", ()=>$("#panel").classList.remove("open"));
+document.addEventListener("keydown", e=>{ if(e.key==="Escape") $("#panel").classList.remove("open"); });
+
+/* ---------- header + tiles ---------- */
+const A = DATA.account;
+$("#sub").innerHTML = `Simulated $20,000 · live US market data · updated ${esc(DATA.generated)} ·
+  <span data-term="drawdown">risk state</span>: <span class="state-chip">${esc(DATA.dd_state)}</span>`;
+const vsBench = (DATA.benchmark.value!=null)
+  ? A.equity - DATA.benchmark.value : null;
+const tiles = [
+  {lbl:"Equity", term:"equity", val:usd(A.equity), sm:`started at ${usd(A.starting_cash)}`},
+  {lbl:"Total return", term:"total-return", val:pct(A.total_return),
+   cls:signCls(A.total_return)},
+  {lbl:"vs SPY buy & hold", term:"benchmark",
+   val: vsBench==null ? "—" : (vsBench>=0?"+":"")+usd(vsBench).replace("$-","-$"),
+   cls:signCls(vsBench), sm:"same $, same start date"},
+  {lbl:"Settled cash", term:"settled-cash", val:usd(A.settled)},
+  {lbl:"Unsettled (T+1)", term:"unsettled-cash", val:usd(A.unsettled)},
+  {lbl:"Tax reserve", term:"tax-reserve", val:usd(A.tax_reserve)},
+];
+$("#tiles").innerHTML = tiles.map(t=>
+  `<div class="tile"><div class="lbl"><span data-term="${t.term}">${t.lbl}</span></div>
+   <div class="val ${t.cls||""}">${t.val}</div>${t.sm?`<div class="sm">${t.sm}</div>`:""}</div>`).join("");
+
+/* ---------- chart ---------- */
+const S = DATA.series;
+const show = {port:true, bench:true};
+const W=960, H=380, P={l:64,r:16,t:14,b:34};
+function renderLegend(){
+  $("#legend").innerHTML =
+   `<button id="lg-port" class="${show.port?"":"off"}"><span class="swatch"></span>Portfolio</button>
+    <button id="lg-bench" class="${show.bench?"":"off"}"><span class="swatch dash"></span>SPY buy &amp; hold</button>`;
+  $("#lg-port").onclick = ()=>{show.port=!show.port; draw();};
+  $("#lg-bench").onclick = ()=>{show.bench=!show.bench; draw();};
+}
+function draw(){
+  renderLegend();
+  const svg = $("#chart");
+  if(S.length < 2){
+    svg.innerHTML = `<text x="${W/2}" y="${H/2}" text-anchor="middle"
+      fill="var(--muted)" font-size="14">The curve appears once a few snapshots
+      have been recorded — check back after the next market close.</text>`;
+    return;
+  }
+  const xs = S.map(d=>new Date(d.t).getTime());
+  const x0 = xs[0], x1 = xs[xs.length-1];
+  let vals = [];
+  if(show.port) vals = vals.concat(S.map(d=>d.equity).filter(v=>v!=null));
+  if(show.bench) vals = vals.concat(S.map(d=>d.bench).filter(v=>v!=null));
+  if(!vals.length){ svg.innerHTML=""; return; }
+  let lo = Math.min(...vals), hi = Math.max(...vals);
+  const span = (hi-lo)||1; lo -= span*.08; hi += span*.08;
+  const X = t => P.l + (t-x0)/((x1-x0)||1) * (W-P.l-P.r);
+  const Y = v => H-P.b - (v-lo)/(hi-lo) * (H-P.t-P.b);
+  let out = "";
+  for(let k=0;k<5;k++){
+    const v = lo + (hi-lo)*k/4, y = Y(v);
+    out += `<line x1="${P.l}" y1="${y}" x2="${W-P.r}" y2="${y}" stroke="var(--grid)"/>
+      <text x="${P.l-8}" y="${y+4}" text-anchor="end" font-size="11"
+        fill="var(--muted)">$${Math.round(v).toLocaleString()}</text>`;
+  }
+  const t0=new Date(x0), t1=new Date(x1);
+  const fd = d=>d.toLocaleDateString("en-US",{month:"short",day:"numeric"});
+  out += `<text x="${P.l}" y="${H-10}" font-size="11" fill="var(--muted)">${fd(t0)}</text>
+    <text x="${W-P.r}" y="${H-10}" text-anchor="end" font-size="11" fill="var(--muted)">${fd(t1)}</text>`;
+  const path = (key)=> S.filter(d=>d[key]!=null)
+    .map((d,i)=>`${i?"L":"M"}${X(new Date(d.t).getTime()).toFixed(1)},${Y(d[key]).toFixed(1)}`).join("");
+  if(show.bench) out += `<path d="${path("bench")}" fill="none" stroke="var(--bench)"
+     stroke-width="2" stroke-dasharray="5 4"/>`;
+  if(show.port) out += `<path d="${path("equity")}" fill="none"
+     stroke="var(--series-1)" stroke-width="2.4"/>`;
+  S.forEach(d=>{ if(d.kind==="eod" && show.port && d.equity!=null){
+    out += `<circle cx="${X(new Date(d.t).getTime())}" cy="${Y(d.equity)}" r="3.2"
+      fill="var(--series-1)" stroke="var(--surface-1)" stroke-width="2"/>`; }});
+  const lastP = S.filter(d=>d.equity!=null).at(-1);
+  const lastB = S.filter(d=>d.bench!=null).at(-1);
+  if(show.port && lastP) out += `<text x="${W-P.r-4}" y="${Y(lastP.equity)-8}" text-anchor="end"
+     font-size="11.5" fill="var(--ink-2)">Portfolio</text>`;
+  if(show.bench && lastB) out += `<text x="${W-P.r-4}" y="${Y(lastB.bench)+16}" text-anchor="end"
+     font-size="11.5" fill="var(--muted)">SPY</text>`;
+  out += `<line id="xh" y1="${P.t}" y2="${H-P.b}" stroke="var(--axis)" stroke-width="1" style="display:none"/>
+          <rect x="${P.l}" y="${P.t}" width="${W-P.l-P.r}" height="${H-P.t-P.b}" fill="transparent" id="hit"/>`;
+  svg.innerHTML = out;
+  const hit = $("#hit"), xh = $("#xh"), tip = $("#tip");
+  hit.addEventListener("mousemove", ev=>{
+    const r = svg.getBoundingClientRect();
+    const mx = (ev.clientX - r.left) * (W/r.width);
+    let best=0, bd=1e18;
+    S.forEach((d,i)=>{ const dx=Math.abs(X(new Date(d.t).getTime())-mx);
+      if(dx<bd){bd=dx;best=i;} });
+    const d = S[best], px = X(new Date(d.t).getTime());
+    xh.setAttribute("x1",px); xh.setAttribute("x2",px); xh.style.display="";
+    const when = new Date(d.t).toLocaleString("en-US",{month:"short",day:"numeric",
+      hour:"numeric",minute:"2-digit",timeZone:"America/New_York"});
+    tip.innerHTML = `<div style="color:var(--muted)">${when} ET</div>` +
+      (show.port && d.equity!=null?`<div>Portfolio <b>${usd(d.equity)}</b></div>`:"") +
+      (show.bench && d.bench!=null?`<div>SPY hold <b>${usd(d.bench)}</b></div>`:"");
+    tip.style.display="block";
+    tip.style.left = Math.min(ev.clientX+14, innerWidth-190)+"px";
+    tip.style.top = (ev.clientY+14)+"px";
+  });
+  hit.addEventListener("mouseleave", ()=>{ xh.style.display="none"; $("#tip").style.display="none"; });
+}
+draw();
+
+/* ---------- positions ---------- */
+$("#positions tbody").innerHTML = DATA.positions.map(p=>{
+  const u = p.unreal, up = p.unreal_pct;
+  return `<tr><td><b>${esc(p.symbol)}</b>${p.is_ballast?' <span class="badge" style="background:var(--chip);color:var(--ink-2)" data-term="ballast">ballast</span>':""}</td>
+   <td class="num">${p.qty}</td><td class="num">${usd(p.avg_basis)}</td>
+   <td class="num">${usd(p.last)}</td><td class="num">${usd(p.value)}</td>
+   <td class="num ${signCls(u)}">${u==null?"—":usd(u)+" ("+pct(up)+")"}</td>
+   <td class="num">${p.stop==null?"—":usd(p.stop)}</td>
+   <td>${esc(p.sector||"—")}</td></tr>`;
+}).join("") || `<tr><td colspan="8" style="color:var(--muted)">No open positions.</td></tr>`;
+
+/* ---------- trade history ---------- */
+$("#trades tbody").innerHTML = DATA.trades.map(t=>{
+  const r = t.realized;
+  const pl = !r ? "—"
+    : `<span class="${signCls(r.gain)}">${usd(r.gain)} (${pct(r.pct)})</span>`
+      + (r.wash ? ` <span class="badge" style="background:var(--chip);color:var(--warn)" data-term="wash-sale">wash</span>`:"")
+      + (r.term ? ` <span class="sm" style="color:var(--muted)" data-term="capital-gains">${r.term}</span>`:"");
+  return `<tr>
+    <td>${esc(t.when)}</td>
+    <td><span class="badge ${t.side}">${t.side.toUpperCase()}</span></td>
+    <td><b>${esc(t.symbol)}</b></td>
+    <td class="num">${t.qty}</td>
+    <td class="num">${usd(t.price)}</td>
+    <td class="num">${usd(t.notional)}</td>
+    <td class="num" title="spread ${usd(t.spread_cost)} + impact ${usd(t.impact_cost)}">${usd(t.costs)}</td>
+    <td class="num">${pl}</td>
+    <td>${r&&r.held!=null ? r.held+"d" : "—"}</td>
+    <td class="reason">${esc(t.reason||"")}</td></tr>`;
+}).join("") || `<tr><td colspan="10" style="color:var(--muted)">No trades yet.</td></tr>`;
+
+/* ---------- metrics ---------- */
+const M = DATA.metrics, mp=M.portfolio, mb=M.benchmark;
+const sh = x => x==null?"—":x.toFixed(2);
+$("#metrics tbody").innerHTML = [
+  [`<span data-term="total-return">Total return</span>`, pct(mp.total_return), pct(mb.total_return)],
+  [`<span data-term="volatility">Annualized volatility</span>`, pct(mp.ann_vol), pct(mb.ann_vol)],
+  [`<span data-term="sharpe">Sharpe ratio</span>`, sh(mp.sharpe), sh(mb.sharpe)],
+  [`<span data-term="max-drawdown">Max drawdown</span>`, pct(mp.max_drawdown), pct(mb.max_drawdown)],
+  [`<span data-term="eod">Days observed</span>`, M.days, M.days],
+].map(r=>`<tr><td>${r[0]}</td><td class="num">${r[1]}</td><td class="num">${r[2]}</td></tr>`).join("");
+
+/* ---------- tax ---------- */
+const T = DATA.tax;
+let taxHtml = "";
+if(T.years.length){
+  taxHtml += `<div class="scroll-x"><table><thead><tr><th>Year</th>
+    <th class="num" data-term="capital-gains">Short-term net</th>
+    <th class="num" data-term="capital-gains">Long-term net</th>
+    <th class="num" data-term="wash-sale">Wash-disallowed</th></tr></thead><tbody>` +
+    T.years.map(y=>`<tr><td>${y.year}</td><td class="num ${signCls(y.st)}">${usd(y.st)}</td>
+      <td class="num ${signCls(y.lt)}">${usd(y.lt)}</td><td class="num">${usd(y.wash)}</td></tr>`).join("")
+    + `</tbody></table></div>`;
+} else taxHtml += `<p style="color:var(--muted);margin:0 0 8px">Nothing sold yet — no realized gains to tax.</p>`;
+taxHtml += `<p class="sub" style="margin:10px 0 0"><span data-term="dividend">Dividends received</span>: ${usd(T.dividends)}
+  · assumed rates: ${pct(T.rates.st,0)} short-term, ${pct(T.rates.lt,0)} long-term,
+  ${pct(T.rates.div,0)} dividends · current <span data-term="tax-reserve">reserve</span>: ${usd(A.tax_reserve)}</p>`;
+$("#tax").innerHTML = taxHtml;
+
+/* ---------- decisions ---------- */
+$("#feed").innerHTML = DATA.decisions.map(d=>
+  `<li><span class="when">${esc(d.when)}</span><span class="kind">${esc(d.kind)}</span>
+   <span>${d.symbol?`<b>${esc(d.symbol)}</b> — `:""}${esc(d.reason)}</span></li>`).join("");
+
+/* ---------- glossary index ---------- */
+$("#gloss-index").innerHTML = Object.entries(GLOSSARY)
+  .sort((a,b)=>a[1].t.localeCompare(b[1].t))
+  .map(([k,g])=>`<button data-term="${k}">${esc(g.t)}</button>`).join("");
+</script>
+</body>
+</html>

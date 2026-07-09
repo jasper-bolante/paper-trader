@@ -1,6 +1,8 @@
 # Paper Trading Account — Performance Report
 
-_Updated 2026-07-09 20:24 UTC · inception 2026-07-08 · drawdown state: **normal**_
+**➜ [Interactive dashboard](https://jasper-bolante.github.io/paper-trader/)** — hover/click any term to learn what it means, toggle the chart lines, and browse full trade history.
+
+_Updated 2026-07-09 21:19 UTC · inception 2026-07-08 · drawdown state: **normal**_
 
 ![equity curve](docs/equity_curve.svg)
 
@@ -44,6 +46,7 @@ Dividends received: $11.29. Assumed rates: 24% short-term, 15% long-term, 15% di
 
 ## Recent decisions
 
+- `2026-07-09T20:24` system — eod_complete
 - `2026-07-09T18:19` no_trade — no signals crossed action thresholds this hour
 - `2026-07-09T18:19` no_trade skip_entry — no entry slots (positions 4/15, new today 2/2)
 - `2026-07-09T16:13` entry buy **DVA** — momentum entry: rank 4, mom 0.706, vol 25%
@@ -58,6 +61,5 @@ Dividends received: $11.29. Assumed rates: 24% short-term, 15% long-term, 15% di
 - `2026-07-08T17:00` no_trade skip_entry — no entry slots (positions 2/15, new today 2/2)
 - `2026-07-08T14:56` no_trade — no signals crossed action thresholds this hour
 - `2026-07-08T14:56` no_trade skip_entry — no entry slots (positions 2/15, new today 2/2)
-- `2026-07-08T14:33` system **SPY** — SPY buy-and-hold benchmark funded with same $
 
 _Full decision log: `state/decisions.jsonl` · full history: `state/trader.db`_

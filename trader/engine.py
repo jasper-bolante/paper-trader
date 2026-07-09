@@ -252,6 +252,9 @@ def _run_hourly(ctx):
             "settled_cash": settled, "positions": len(positions),
         })
     _snapshot(ctx, "intraday")
+    # Keep the report and dashboard fresh every hour, not just at EOD.
+    positions = ledger.positions(conn)
+    report.generate(conn, cfg, {s: ctx.price(s) for s in positions}, today)
     db.set_meta(conn, "last_hourly_ts", ts)
     conn.commit()
 

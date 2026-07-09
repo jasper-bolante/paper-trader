@@ -5,7 +5,7 @@ import json
 import os
 from datetime import datetime, timezone
 
-from . import config, db, ledger, metrics, tax
+from . import config, dashboard, db, ledger, metrics, tax
 
 
 def _pct(x, digits=2):
@@ -37,6 +37,12 @@ def generate(conn, cfg, last_prices, today):
     lines = []
     lines.append("# Paper Trading Account — Performance Report")
     lines.append("")
+    url = (cfg.get("reporting") or {}).get("dashboard_url")
+    if url:
+        lines.append(f"**➜ [Interactive dashboard]({url})** — hover/click any "
+                     f"term to learn what it means, toggle the chart lines, "
+                     f"and browse full trade history.")
+        lines.append("")
     lines.append(f"_Updated {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')} · "
                  f"inception {db.get_meta(conn, 'inception') or '—'} · "
                  f"drawdown state: **{db.get_meta(conn, 'dd_state') or 'normal'}**_")
@@ -137,6 +143,7 @@ def generate(conn, cfg, last_prices, today):
         f.write("\n".join(lines) + "\n")
 
     _equity_svg(conn, cfg)
+    dashboard.generate(conn, cfg, last_prices, today)
 
 
 def _equity_svg(conn, cfg):
