@@ -1,4 +1,4 @@
-import { formatDateTime, formatFluidRange, formatWeight } from '../lib/calc';
+import { formatDateTime, formatFluidRange, formatPercent, formatWeight } from '../lib/calc';
 
 export default function History({ entries, unit }) {
   return (
@@ -20,7 +20,7 @@ export default function History({ entries, unit }) {
                   }
                 >
                   {formatWeight(entry.analysis.changeKg, unit, { signed: true })} (
-                  {entry.analysis.percentChange.toFixed(1)}%)
+                  {formatPercent(entry.analysis.percentChange)})
                 </span>
               </div>
               <div className="history-item__detail">

@@ -351,6 +351,24 @@ body {
   color: var(--accent);
 }
 
+.result-pair {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.result-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.big-number--pair {
+  font-size: clamp(2rem, 9.5vw, 2.9rem);
+}
+
 .result-hero__label {
   color: var(--muted);
   font-size: 0.9rem;

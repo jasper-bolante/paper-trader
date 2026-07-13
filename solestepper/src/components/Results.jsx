@@ -1,4 +1,4 @@
-import { analyzeSession, formatFluidRange, formatWeight } from '../lib/calc';
+import { analyzeSession, formatFluidRange, formatPercent, formatWeight } from '../lib/calc';
 
 export default function Results({ pre, post, unit, onSave }) {
   const a = analyzeSession(pre.kg, post.kg);
@@ -10,16 +10,25 @@ export default function Results({ pre, post, unit, onSave }) {
       <h2 className="card__title">Session result</h2>
 
       <div className="result-hero">
-        <span className="big-number">
-          {formatWeight(a.changeKg, unit, { signed: true })}
-        </span>
-        <span className="result-hero__label">
-          {lost
-            ? `weight lost (${Math.abs(a.percentChange).toFixed(1)}% of body weight)`
-            : gained
-              ? `weight gained (${a.percentChange.toFixed(1)}% of body weight)`
-              : 'no measurable change'}
-        </span>
+        <div className="result-pair">
+          <div className="result-stat">
+            <span className="big-number big-number--pair">
+              {formatWeight(a.changeKg, unit, { signed: true })}
+            </span>
+            <span className="result-hero__label">
+              {lost ? 'weight lost' : gained ? 'weight gained' : 'weight change'}
+            </span>
+          </div>
+          <div className="result-stat">
+            <span className="big-number big-number--pair">
+              {formatPercent(a.percentChange)}
+            </span>
+            <span className="result-hero__label">of body weight</span>
+          </div>
+        </div>
+        {!lost && !gained && (
+          <span className="result-hero__label">no measurable change</span>
+        )}
       </div>
 
       <p className="explain">

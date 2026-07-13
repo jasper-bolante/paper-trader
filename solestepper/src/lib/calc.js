@@ -14,6 +14,11 @@ export function formatWeight(kg, unit, { signed = false } = {}) {
   return `${sign}${value.toFixed(1)} ${unit}`;
 }
 
+export function formatPercent(pct, { signed = true } = {}) {
+  const sign = signed && pct > 0 ? '+' : '';
+  return `${sign}${pct.toFixed(1)}%`;
+}
+
 // All weights are stored in kg; changeKg < 0 means weight was lost.
 export function analyzeSession(preKg, postKg) {
   const changeKg = postKg - preKg;
