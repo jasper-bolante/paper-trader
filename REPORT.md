@@ -2,7 +2,7 @@
 
 **➜ [Interactive dashboard](https://jasper-bolante.github.io/paper-trader/)** — hover/click any term to learn what it means, toggle the chart lines, and browse full trade history.
 
-_Updated 2026-07-14 18:42 UTC · inception 2026-07-08 · drawdown state: **normal**_
+_Updated 2026-07-14 20:40 UTC · inception 2026-07-08 · drawdown state: **normal**_
 
 ![equity curve](docs/equity_curve.svg)
 
@@ -10,10 +10,10 @@ _Updated 2026-07-14 18:42 UTC · inception 2026-07-08 · drawdown state: **norma
 
 | | |
 |---|---:|
-| **Equity (net of tax reserve)** | **$20,103.72** |
-| Total return since inception | 0.52% |
-| S&P 500 benchmark (same $ , dividends reinvested) | $20,162.29 (0.81%) |
-| Positions value | $14,576.40 |
+| **Equity (net of tax reserve)** | **$20,142.10** |
+| Total return since inception | 0.71% |
+| S&P 500 benchmark (same $ , dividends reinvested) | $20,240.88 (1.20%) |
+| Positions value | $14,614.78 |
 | Settled cash | $5,516.95 |
 | Unsettled cash (T+1) | $14.65 |
 | Tax reserve | $4.28 |
@@ -22,27 +22,27 @@ _Updated 2026-07-14 18:42 UTC · inception 2026-07-08 · drawdown state: **norma
 
 | Metric | Portfolio | Benchmark |
 |---|---:|---:|
-| Total return | 0.44% | 0.63% |
-| Annualized volatility | 4.41% | 14.11% |
-| Sharpe (rf 4%) | 7.47 | 3.53 |
+| Total return | 0.64% | 1.03% |
+| Annualized volatility | 3.63% | 11.60% |
+| Sharpe (rf 4%) | 10.04 | 5.25 |
 | Max drawdown | 0.03% | 0.77% |
-| EOD observations | 4 | 4 |
+| EOD observations | 5 | 5 |
 
 ## Positions
 
 | Symbol | Qty | Avg basis | Last | Value | Unrealized | Stop |
 |---|---:|---:|---:|---:|---:|---:|
-| BEN | 42 | $33.14 | $32.97 | $1,384.53 | $-7.43 | $29.81 |
-| CNC | 13 | $66.94 | $68.69 | $892.90 | $22.66 | $61.46 |
-| CSCO | 8 | $120.26 | $116.66 | $933.28 | $-28.81 | $109.12 |
-| DVA | 6 | $227.39 | $232.23 | $1,393.38 | $29.02 | $211.95 |
-| FFIV | 3 | $430.59 | $427.04 | $1,281.12 | $-10.65 | $387.13 |
-| FTNT | 5 | $155.14 | $165.48 | $827.40 | $51.72 | $147.32 |
-| HUM | 2 | $401.64 | $404.57 | $809.14 | $5.86 | $365.27 |
-| IBKR | 10 | $95.61 | $95.36 | $953.55 | $-2.51 | $86.00 |
-| SPY | 5 | $743.10 | $751.99 | $3,759.95 | $44.45 | — |
-| UNH | 3 | $425.21 | $425.35 | $1,276.05 | $0.43 | $382.49 |
-| URI | 1 | $1,090.35 | $1,065.09 | $1,065.09 | $-25.26 | $980.79 |
+| BEN | 42 | $33.14 | $33.13 | $1,391.67 | $-0.29 | $29.82 |
+| CNC | 13 | $66.94 | $68.72 | $893.30 | $23.06 | $61.84 |
+| CSCO | 8 | $120.26 | $117.10 | $936.80 | $-25.29 | $109.12 |
+| DVA | 6 | $227.39 | $232.35 | $1,394.10 | $29.74 | $211.95 |
+| FFIV | 3 | $430.59 | $431.35 | $1,294.05 | $2.28 | $388.22 |
+| FTNT | 5 | $155.14 | $166.84 | $834.20 | $58.52 | $150.16 |
+| HUM | 2 | $401.64 | $406.54 | $813.08 | $9.80 | $365.89 |
+| IBKR | 10 | $95.61 | $95.61 | $956.10 | $0.04 | $86.05 |
+| SPY | 5 | $743.10 | $752.05 | $3,760.25 | $44.75 | — |
+| UNH | 3 | $425.21 | $425.32 | $1,275.97 | $0.36 | $382.79 |
+| URI | 1 | $1,090.35 | $1,065.26 | $1,065.26 | $-25.09 | $980.79 |
 
 ## Realized gains & tax
 

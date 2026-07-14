@@ -102,3 +102,4 @@
 {"ts": "2026-07-14T18:42:49+00:00", "run_id": "20260714T144249-1fdc45", "kind": "hold", "symbol": "URI", "action": "hold", "detail": {"qty": 1.0, "last": 1065.09, "rank": 9, "ma_exit": 914.9924, "held_trading_days": 1, "stop": 980.793}}
 {"ts": "2026-07-14T18:42:49+00:00", "run_id": "20260714T144249-1fdc45", "kind": "no_trade", "symbol": null, "action": "skip_entry", "detail": {"symbol": null, "reason": "no entry slots (positions 10/15, new today 2/2)"}}
 {"ts": "2026-07-14T18:42:49+00:00", "run_id": "20260714T144249-1fdc45", "kind": "no_trade", "symbol": null, "action": null, "detail": {"reason": "no signals crossed action thresholds this hour", "drawdown_state": "normal", "equity": 20103.72, "settled_cash": 5516.95, "positions": 11}}
+{"ts": "2026-07-14T20:40:04+00:00", "run_id": "20260714T164004-7c0789", "kind": "system", "symbol": null, "action": null, "detail": {"event": "eod_complete", "equity": 20142.1, "hwm": 20142.1}}
