@@ -260,3 +260,5 @@
 {"ts": "2026-07-17T18:36:55+00:00", "run_id": "20260717T143654-ba6cb2", "kind": "no_trade", "symbol": "MGM", "action": "skip_entry", "detail": {"symbol": "MGM", "rank": 21, "reason": "insufficient investable cash (size $488, need >= $500)"}}
 {"ts": "2026-07-17T18:36:55+00:00", "run_id": "20260717T143654-ba6cb2", "kind": "no_trade", "symbol": "DAL", "action": "skip_entry", "detail": {"symbol": "DAL", "rank": 22, "reason": "insufficient investable cash (size $488, need >= $500)"}}
 {"ts": "2026-07-17T18:36:55+00:00", "run_id": "20260717T143654-ba6cb2", "kind": "no_trade", "symbol": null, "action": null, "detail": {"reason": "no signals crossed action thresholds this hour", "drawdown_state": "normal", "equity": 19857.01, "settled_cash": 1486.06, "positions": 15}}
+{"ts": "2026-07-17T20:28:54+00:00", "run_id": "20260717T162854-1ed577", "kind": "system", "symbol": null, "action": null, "detail": {"event": "corporate_actions_synced", "new_rows": 1}}
+{"ts": "2026-07-17T20:28:54+00:00", "run_id": "20260717T162854-1ed577", "kind": "system", "symbol": null, "action": null, "detail": {"event": "eod_complete", "equity": 19856.79, "hwm": 20142.1}}
