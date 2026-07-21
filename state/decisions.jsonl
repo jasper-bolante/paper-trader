@@ -396,3 +396,4 @@
 {"ts": "2026-07-21T18:51:13+00:00", "run_id": "20260721T145112-d31429", "kind": "no_trade", "symbol": "CSX", "action": "skip_entry", "detail": {"symbol": "CSX", "rank": 19, "reason": "insufficient investable cash (size $483, need >= $500)"}}
 {"ts": "2026-07-21T18:51:13+00:00", "run_id": "20260721T145112-d31429", "kind": "no_trade", "symbol": "DOC", "action": "skip_entry", "detail": {"symbol": "DOC", "rank": 20, "reason": "insufficient investable cash (size $483, need >= $500)"}}
 {"ts": "2026-07-21T18:51:13+00:00", "run_id": "20260721T145112-d31429", "kind": "no_trade", "symbol": null, "action": null, "detail": {"reason": "no signals crossed action thresholds this hour", "drawdown_state": "normal", "equity": 19940.5, "settled_cash": 1486.06, "positions": 13}}
+{"ts": "2026-07-21T20:46:41+00:00", "run_id": "20260721T164640-ac3f3a", "kind": "system", "symbol": null, "action": null, "detail": {"event": "eod_complete", "equity": 19961.03, "hwm": 20142.1}}
