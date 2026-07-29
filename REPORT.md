@@ -2,7 +2,7 @@
 
 **➜ [Interactive dashboard](https://jasper-bolante.github.io/paper-trader/)** — hover/click any term to learn what it means, toggle the chart lines, and browse full trade history.
 
-_Updated 2026-07-29 18:33 UTC · inception 2026-07-08 · drawdown state: **normal**_
+_Updated 2026-07-29 19:54 UTC · inception 2026-07-08 · drawdown state: **normal**_
 
 ![equity curve](docs/equity_curve.svg)
 
@@ -10,10 +10,10 @@ _Updated 2026-07-29 18:33 UTC · inception 2026-07-08 · drawdown state: **norma
 
 | | |
 |---|---:|
-| **Equity (net of tax reserve)** | **$19,313.07** |
-| Total return since inception | -3.43% |
+| **Equity (net of tax reserve)** | **$19,301.35** |
+| Total return since inception | -3.49% |
 | S&P 500 benchmark (same $ , dividends reinvested) | $19,937.96 (-0.31%) |
-| Positions value | $16,027.09 |
+| Positions value | $16,015.37 |
 | Settled cash | $1,668.58 |
 | Unsettled cash (T+1) | $1,623.56 |
 | Tax reserve | $6.16 |
@@ -32,19 +32,19 @@ _Updated 2026-07-29 18:33 UTC · inception 2026-07-08 · drawdown state: **norma
 
 | Symbol | Qty | Avg basis | Last | Value | Unrealized | Stop |
 |---|---:|---:|---:|---:|---:|---:|
-| DDOG | 3 | $260.67 | $270.15 | $810.46 | $28.46 | $236.93 |
-| DOC | 32 | $22.25 | $22.55 | $721.60 | $9.58 | $20.55 |
-| DVA | 6 | $227.39 | $240.09 | $1,440.57 | $76.21 | $215.55 |
-| FTNT | 7 | $149.43 | $146.77 | $1,027.39 | $-18.65 | $131.17 |
-| HUM | 3 | $391.16 | $357.64 | $1,072.92 | $-100.55 | $329.83 |
-| JBHT | 3 | $277.72 | $274.58 | $823.74 | $-9.43 | $252.76 |
-| MPC | 3 | $306.56 | $309.48 | $928.44 | $8.76 | $287.83 |
-| NTAP | 5 | $161.48 | $175.59 | $877.95 | $70.57 | $157.11 |
-| PSX | 5 | $215.50 | $208.26 | $1,041.30 | $-36.18 | $191.32 |
-| SPY | 5 | $743.10 | $736.86 | $3,684.30 | $-31.20 | — |
-| STT | 8 | $185.86 | $177.66 | $1,421.28 | $-65.59 | $168.04 |
-| UNH | 3 | $425.21 | $421.61 | $1,264.83 | $-10.79 | $393.25 |
-| VLO | 3 | $304.72 | $304.10 | $912.30 | $-1.86 | $283.28 |
+| DDOG | 3 | $260.67 | $265.73 | $797.19 | $15.19 | $236.93 |
+| DOC | 32 | $22.25 | $22.49 | $719.68 | $7.66 | $20.55 |
+| DVA | 6 | $227.39 | $239.90 | $1,439.40 | $75.04 | $215.55 |
+| FTNT | 7 | $149.43 | $154.37 | $1,080.59 | $34.55 | $131.17 |
+| HUM | 3 | $391.16 | $363.86 | $1,091.58 | $-81.89 | $329.83 |
+| JBHT | 3 | $277.72 | $275.65 | $826.95 | $-6.22 | $252.76 |
+| MPC | 3 | $306.56 | $308.55 | $925.65 | $5.97 | $287.83 |
+| NTAP | 5 | $161.48 | $173.48 | $867.40 | $60.02 | $157.11 |
+| PSX | 5 | $215.50 | $206.73 | $1,033.65 | $-43.83 | $191.32 |
+| SPY | 5 | $743.10 | $730.79 | $3,653.95 | $-61.55 | — |
+| STT | 8 | $185.86 | $175.92 | $1,407.36 | $-79.51 | $168.04 |
+| UNH | 3 | $425.21 | $421.18 | $1,263.54 | $-12.08 | $393.25 |
+| VLO | 3 | $304.72 | $302.81 | $908.43 | $-5.73 | $283.28 |
 
 ## Realized gains & tax
 
@@ -56,6 +56,8 @@ Dividends received: $41.08. Assumed rates: 24% short-term, 15% long-term, 15% di
 
 ## Recent decisions
 
+- `2026-07-29T19:54` no_trade — no signals crossed action thresholds this hour
+- `2026-07-29T19:54` no_trade skip_entry — no entry slots (positions 12/15, new today 2/2)
 - `2026-07-29T18:33` no_trade — no signals crossed action thresholds this hour
 - `2026-07-29T18:33` no_trade skip_entry — no entry slots (positions 12/15, new today 2/2)
 - `2026-07-29T16:52` no_trade — no signals crossed action thresholds this hour
@@ -69,7 +71,5 @@ Dividends received: $41.08. Assumed rates: 24% short-term, 15% long-term, 15% di
 - `2026-07-28T17:58` no_trade skip_entry **CSX** — insufficient investable cash (size $16, need >= $500)
 - `2026-07-28T17:58` no_trade skip_entry **BBY** — insufficient investable cash (size $16, need >= $500)
 - `2026-07-28T17:58` no_trade skip_entry **ADM** — insufficient investable cash (size $16, need >= $500)
-- `2026-07-28T17:58` no_trade skip_entry **TRV** — insufficient investable cash (size $16, need >= $500)
-- `2026-07-28T17:58` no_trade skip_entry **CVS** — insufficient investable cash (size $16, need >= $500)
 
 _Full decision log: `state/decisions.jsonl` · full history: `state/trader.db`_
