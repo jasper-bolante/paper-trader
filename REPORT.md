@@ -2,7 +2,7 @@
 
 **➜ [Interactive dashboard](https://jasper-bolante.github.io/paper-trader/)** — hover/click any term to learn what it means, toggle the chart lines, and browse full trade history.
 
-_Updated 2026-08-07 15:29 UTC · inception 2026-07-08 · drawdown state: **normal**_
+_Updated 2026-08-07 16:26 UTC · inception 2026-07-08 · drawdown state: **normal**_
 
 ![equity curve](docs/equity_curve.svg)
 
@@ -10,10 +10,10 @@ _Updated 2026-08-07 15:29 UTC · inception 2026-07-08 · drawdown state: **norma
 
 | | |
 |---|---:|
-| **Equity (net of tax reserve)** | **$19,293.79** |
-| Total return since inception | -3.53% |
+| **Equity (net of tax reserve)** | **$19,302.27** |
+| Total return since inception | -3.49% |
 | S&P 500 benchmark (same $ , dividends reinvested) | $20,673.66 (3.37%) |
-| Positions value | $16,635.76 |
+| Positions value | $16,644.24 |
 | Settled cash | $1,218.43 |
 | Unsettled cash (T+1) | $1,446.40 |
 | Tax reserve | $6.80 |
@@ -32,20 +32,20 @@ _Updated 2026-08-07 15:29 UTC · inception 2026-07-08 · drawdown state: **norma
 
 | Symbol | Qty | Avg basis | Last | Value | Unrealized | Stop |
 |---|---:|---:|---:|---:|---:|---:|
-| BAX | 28 | $27.27 | $27.23 | $762.44 | $-1.17 | $24.54 |
-| BBY | 14 | $88.05 | $81.25 | $1,137.50 | $-95.25 | $79.24 |
-| CSCO | 8 | $131.57 | $121.08 | $968.64 | $-83.95 | $108.28 |
-| CSX | 17 | $50.29 | $50.47 | $857.91 | $2.96 | $46.01 |
-| DDOG | 3 | $268.94 | $237.16 | $711.50 | $-95.33 | $211.93 |
-| FTNT | 7 | $149.43 | $160.62 | $1,124.34 | $78.30 | $151.44 |
-| HPQ | 31 | $28.20 | $29.09 | $901.79 | $27.55 | $25.38 |
-| MPC | 3 | $306.56 | $298.97 | $896.91 | $-22.77 | $287.83 |
-| NTAP | 5 | $161.48 | $188.44 | $942.17 | $134.79 | $172.38 |
-| PSX | 5 | $215.50 | $205.22 | $1,026.10 | $-51.38 | $191.32 |
-| SPY | 5 | $743.10 | $773.68 | $3,868.40 | $152.90 | — |
-| STT | 8 | $185.86 | $184.54 | $1,476.32 | $-10.55 | $168.31 |
-| VLO | 3 | $304.72 | $299.74 | $899.22 | $-14.94 | $283.28 |
-| WST | 3 | $336.32 | $354.18 | $1,062.53 | $53.57 | $316.04 |
+| BAX | 28 | $27.27 | $27.28 | $763.84 | $0.23 | $24.54 |
+| BBY | 14 | $88.05 | $81.40 | $1,139.60 | $-93.15 | $79.24 |
+| CSCO | 8 | $131.57 | $121.06 | $968.52 | $-84.07 | $108.28 |
+| CSX | 17 | $50.29 | $50.70 | $861.99 | $7.03 | $46.01 |
+| DDOG | 3 | $268.94 | $237.10 | $711.31 | $-95.51 | $211.93 |
+| FTNT | 7 | $149.43 | $159.85 | $1,118.95 | $72.91 | $151.44 |
+| HPQ | 31 | $28.20 | $29.20 | $905.35 | $31.11 | $25.38 |
+| MPC | 3 | $306.56 | $300.69 | $902.07 | $-17.61 | $287.83 |
+| NTAP | 5 | $161.48 | $188.87 | $944.33 | $136.95 | $172.38 |
+| PSX | 5 | $215.50 | $205.31 | $1,026.55 | $-50.93 | $191.32 |
+| SPY | 5 | $743.10 | $771.82 | $3,859.10 | $143.60 | — |
+| STT | 8 | $185.86 | $184.53 | $1,476.28 | $-10.59 | $168.31 |
+| VLO | 3 | $304.72 | $300.71 | $902.13 | $-12.03 | $283.28 |
+| WST | 3 | $336.32 | $354.74 | $1,064.22 | $55.26 | $316.04 |
 
 ## Realized gains & tax
 
@@ -57,6 +57,8 @@ Dividends received: $45.34. Assumed rates: 24% short-term, 15% long-term, 15% di
 
 ## Recent decisions
 
+- `2026-08-07T16:26` no_trade — no signals crossed action thresholds this hour
+- `2026-08-07T16:26` no_trade skip_entry — no entry slots (positions 13/15, new today 2/2)
 - `2026-08-07T15:29` no_trade — no signals crossed action thresholds this hour
 - `2026-08-07T15:29` no_trade skip_entry — no entry slots (positions 13/15, new today 2/2)
 - `2026-08-07T14:34` entry buy **CSCO** — momentum entry: rank 8, mom 0.353, vol 36%
@@ -70,7 +72,5 @@ Dividends received: $45.34. Assumed rates: 24% short-term, 15% long-term, 15% di
 - `2026-08-05T20:10` system — eod_complete
 - `2026-08-05T18:07` no_trade — no signals crossed action thresholds this hour
 - `2026-08-05T18:07` no_trade skip_entry **CVS** — insufficient investable cash (size $394, need >= $500)
-- `2026-08-05T18:07` no_trade skip_entry **TRV** — insufficient investable cash (size $394, need >= $500)
-- `2026-08-05T18:07` no_trade skip_entry **NUE** — insufficient investable cash (size $394, need >= $500)
 
 _Full decision log: `state/decisions.jsonl` · full history: `state/trader.db`_
