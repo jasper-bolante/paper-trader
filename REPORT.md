@@ -2,7 +2,7 @@
 
 **➜ [Interactive dashboard](https://jasper-bolante.github.io/paper-trader/)** — hover/click any term to learn what it means, toggle the chart lines, and browse full trade history.
 
-_Updated 2026-08-10 18:25 UTC · inception 2026-07-08 · drawdown state: **normal**_
+_Updated 2026-08-10 19:33 UTC · inception 2026-07-08 · drawdown state: **normal**_
 
 ![equity curve](docs/equity_curve.svg)
 
@@ -10,10 +10,10 @@ _Updated 2026-08-10 18:25 UTC · inception 2026-07-08 · drawdown state: **norma
 
 | | |
 |---|---:|
-| **Equity (net of tax reserve)** | **$19,681.06** |
-| Total return since inception | -1.59% |
+| **Equity (net of tax reserve)** | **$19,692.74** |
+| Total return since inception | -1.54% |
 | S&P 500 benchmark (same $ , dividends reinvested) | $20,809.04 (4.05%) |
-| Positions value | $18,640.95 |
+| Positions value | $18,652.63 |
 | Settled cash | $1,043.31 |
 | Unsettled cash (T+1) | $3.60 |
 | Tax reserve | $6.80 |
@@ -32,22 +32,22 @@ _Updated 2026-08-10 18:25 UTC · inception 2026-07-08 · drawdown state: **norma
 
 | Symbol | Qty | Avg basis | Last | Value | Unrealized | Stop |
 |---|---:|---:|---:|---:|---:|---:|
-| BAX | 28 | $27.27 | $27.82 | $778.96 | $15.35 | $24.79 |
-| BBY | 14 | $88.05 | $82.61 | $1,156.54 | $-76.21 | $79.24 |
-| CSCO | 8 | $131.57 | $124.25 | $994.04 | $-58.55 | $109.28 |
-| CSX | 17 | $50.29 | $50.20 | $853.32 | $-1.63 | $46.01 |
-| DDOG | 3 | $268.94 | $256.06 | $768.18 | $-38.64 | $211.93 |
-| DOC | 40 | $21.90 | $21.00 | $839.80 | $-36.27 | $18.97 |
-| FTNT | 7 | $149.43 | $164.66 | $1,152.65 | $106.62 | $151.44 |
-| HPQ | 31 | $28.20 | $30.25 | $937.60 | $63.36 | $27.04 |
-| HUM | 2 | $398.00 | $387.60 | $775.20 | $-20.79 | $348.07 |
-| MPC | 3 | $306.56 | $316.60 | $949.80 | $30.12 | $287.83 |
-| NTAP | 5 | $161.48 | $200.83 | $1,004.15 | $196.77 | $172.38 |
-| PSX | 5 | $215.50 | $214.15 | $1,070.73 | $-6.75 | $191.32 |
-| SPY | 5 | $743.10 | $772.60 | $3,863.00 | $147.50 | — |
-| STT | 8 | $185.86 | $185.57 | $1,484.56 | $-2.31 | $168.31 |
-| VLO | 3 | $304.72 | $314.71 | $944.13 | $29.97 | $283.28 |
-| WST | 3 | $336.32 | $356.10 | $1,068.30 | $59.34 | $318.26 |
+| BAX | 28 | $27.27 | $27.88 | $780.50 | $16.89 | $24.79 |
+| BBY | 14 | $88.05 | $82.72 | $1,158.15 | $-74.60 | $79.24 |
+| CSCO | 8 | $131.57 | $123.76 | $990.08 | $-62.51 | $109.28 |
+| CSX | 17 | $50.29 | $50.12 | $852.04 | $-2.91 | $46.01 |
+| DDOG | 3 | $268.94 | $259.15 | $777.45 | $-29.37 | $211.93 |
+| DOC | 40 | $21.90 | $20.95 | $838.00 | $-38.07 | $18.97 |
+| FTNT | 7 | $149.43 | $164.57 | $1,152.02 | $105.98 | $151.44 |
+| HPQ | 31 | $28.20 | $30.18 | $935.43 | $61.19 | $27.04 |
+| HUM | 2 | $398.00 | $385.01 | $770.02 | $-25.97 | $348.07 |
+| MPC | 3 | $306.56 | $317.89 | $953.68 | $34.00 | $287.83 |
+| NTAP | 5 | $161.48 | $201.06 | $1,005.30 | $197.92 | $172.38 |
+| PSX | 5 | $215.50 | $215.05 | $1,075.25 | $-2.23 | $191.32 |
+| SPY | 5 | $743.10 | $772.85 | $3,864.25 | $148.75 | — |
+| STT | 8 | $185.86 | $186.69 | $1,493.52 | $6.65 | $168.31 |
+| VLO | 3 | $304.72 | $314.60 | $943.80 | $29.64 | $283.28 |
+| WST | 3 | $336.32 | $354.38 | $1,063.14 | $54.18 | $318.26 |
 
 ## Realized gains & tax
 
@@ -59,6 +59,8 @@ Dividends received: $45.34. Assumed rates: 24% short-term, 15% long-term, 15% di
 
 ## Recent decisions
 
+- `2026-08-10T19:33` no_trade — no signals crossed action thresholds this hour
+- `2026-08-10T19:33` no_trade skip_entry — no entry slots (positions 15/15, new today 2/2)
 - `2026-08-10T18:25` no_trade — no signals crossed action thresholds this hour
 - `2026-08-10T18:25` no_trade skip_entry — no entry slots (positions 15/15, new today 2/2)
 - `2026-08-10T17:28` no_trade — no signals crossed action thresholds this hour
@@ -72,7 +74,5 @@ Dividends received: $45.34. Assumed rates: 24% short-term, 15% long-term, 15% di
 - `2026-08-07T19:33` no_trade skip_entry — no entry slots (positions 13/15, new today 2/2)
 - `2026-08-07T18:25` no_trade — no signals crossed action thresholds this hour
 - `2026-08-07T18:25` no_trade skip_entry — no entry slots (positions 13/15, new today 2/2)
-- `2026-08-07T17:26` no_trade — no signals crossed action thresholds this hour
-- `2026-08-07T17:26` no_trade skip_entry — no entry slots (positions 13/15, new today 2/2)
 
 _Full decision log: `state/decisions.jsonl` · full history: `state/trader.db`_
