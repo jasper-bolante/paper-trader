@@ -2,7 +2,7 @@
 
 **➜ [Interactive dashboard](https://jasper-bolante.github.io/paper-trader/)** — hover/click any term to learn what it means, toggle the chart lines, and browse full trade history.
 
-_Updated 2026-08-11 19:38 UTC · inception 2026-07-08 · drawdown state: **normal**_
+_Updated 2026-08-11 21:24 UTC · inception 2026-07-08 · drawdown state: **normal**_
 
 ![equity curve](docs/equity_curve.svg)
 
@@ -10,10 +10,10 @@ _Updated 2026-08-11 19:38 UTC · inception 2026-07-08 · drawdown state: **norma
 
 | | |
 |---|---:|
-| **Equity (net of tax reserve)** | **$19,661.93** |
-| Total return since inception | -1.69% |
-| S&P 500 benchmark (same $ , dividends reinvested) | $20,799.89 (4.00%) |
-| Positions value | $17,865.67 |
+| **Equity (net of tax reserve)** | **$19,648.57** |
+| Total return since inception | -1.76% |
+| S&P 500 benchmark (same $ , dividends reinvested) | $20,739.34 (3.70%) |
+| Positions value | $17,852.31 |
 | Settled cash | $1,043.31 |
 | Unsettled cash (T+1) | $759.75 |
 | Tax reserve | $6.80 |
@@ -22,31 +22,31 @@ _Updated 2026-08-11 19:38 UTC · inception 2026-07-08 · drawdown state: **norma
 
 | Metric | Portfolio | Benchmark |
 |---|---:|---:|
-| Total return | -1.78% | 3.82% |
-| Annualized volatility | 13.07% | 14.44% |
-| Sharpe (rf 4%) | -1.75 | 2.64 |
+| Total return | -1.82% | 3.51% |
+| Annualized volatility | 12.78% | 14.20% |
+| Sharpe (rf 4%) | -1.76 | 2.34 |
 | Max drawdown | 4.83% | 3.57% |
-| EOD observations | 24 | 24 |
+| EOD observations | 25 | 25 |
 
 ## Positions
 
 | Symbol | Qty | Avg basis | Last | Value | Unrealized | Stop |
 |---|---:|---:|---:|---:|---:|---:|
-| BAX | 28 | $27.27 | $27.71 | $775.88 | $12.27 | $25.00 |
-| BBY | 14 | $88.05 | $83.83 | $1,173.62 | $-59.13 | $79.24 |
-| CSCO | 8 | $131.57 | $120.89 | $967.12 | $-85.47 | $110.34 |
-| CSX | 17 | $50.29 | $50.12 | $851.96 | $-3.00 | $46.01 |
-| DOC | 40 | $21.90 | $20.57 | $823.00 | $-53.07 | $18.97 |
-| FTNT | 7 | $149.43 | $161.72 | $1,132.04 | $86.00 | $151.44 |
-| HPQ | 31 | $28.20 | $29.05 | $900.55 | $26.31 | $27.04 |
-| HUM | 2 | $398.00 | $374.90 | $749.80 | $-46.19 | $348.07 |
-| MPC | 3 | $306.56 | $333.77 | $1,001.31 | $81.63 | $288.24 |
-| NTAP | 5 | $161.48 | $198.52 | $992.60 | $185.22 | $178.85 |
-| PSX | 5 | $215.50 | $223.89 | $1,119.45 | $41.97 | $193.81 |
-| SPY | 5 | $743.10 | $771.00 | $3,855.00 | $139.50 | — |
-| STT | 8 | $185.86 | $187.10 | $1,496.80 | $9.93 | $168.31 |
-| VLO | 3 | $304.72 | $322.88 | $968.62 | $54.47 | $283.47 |
-| WST | 3 | $336.32 | $352.64 | $1,057.92 | $48.96 | $318.26 |
+| BAX | 28 | $27.27 | $27.61 | $772.94 | $9.33 | $25.00 |
+| BBY | 14 | $88.05 | $83.27 | $1,165.78 | $-66.97 | $79.24 |
+| CSCO | 8 | $131.57 | $120.44 | $963.52 | $-89.07 | $110.34 |
+| CSX | 17 | $50.29 | $49.96 | $849.32 | $-5.63 | $46.01 |
+| DOC | 40 | $21.90 | $20.50 | $820.00 | $-56.07 | $18.97 |
+| FTNT | 7 | $149.43 | $161.91 | $1,133.37 | $87.33 | $151.44 |
+| HPQ | 31 | $28.20 | $29.07 | $901.01 | $26.77 | $27.04 |
+| HUM | 2 | $398.00 | $372.82 | $745.65 | $-50.34 | $348.07 |
+| MPC | 3 | $306.56 | $336.38 | $1,009.12 | $89.45 | $302.74 |
+| NTAP | 5 | $161.48 | $198.50 | $992.50 | $185.12 | $178.85 |
+| PSX | 5 | $215.50 | $224.36 | $1,121.80 | $44.32 | $201.92 |
+| SPY | 5 | $743.10 | $770.57 | $3,852.85 | $137.35 | — |
+| STT | 8 | $185.86 | $187.21 | $1,497.68 | $10.81 | $168.49 |
+| VLO | 3 | $304.72 | $323.85 | $971.54 | $57.38 | $291.46 |
+| WST | 3 | $336.32 | $351.74 | $1,055.22 | $46.26 | $318.26 |
 
 ## Realized gains & tax
 
@@ -58,6 +58,7 @@ Dividends received: $45.34. Assumed rates: 24% short-term, 15% long-term, 15% di
 
 ## Recent decisions
 
+- `2026-08-11T21:24` system — corporate_actions_synced
 - `2026-08-11T19:38` no_trade — no signals crossed action thresholds this hour
 - `2026-08-11T19:38` no_trade skip_entry **TGT** — insufficient investable cash (size $53, need >= $500)
 - `2026-08-11T19:38` no_trade skip_entry **URI** — insufficient investable cash (size $53, need >= $500)
@@ -72,6 +73,5 @@ Dividends received: $45.34. Assumed rates: 24% short-term, 15% long-term, 15% di
 - `2026-08-11T18:28` no_trade skip_entry **URI** — insufficient investable cash (size $55, need >= $500)
 - `2026-08-11T18:28` no_trade skip_entry **NUE** — insufficient investable cash (size $55, need >= $500)
 - `2026-08-11T18:28` no_trade skip_entry **GEN** — insufficient investable cash (size $55, need >= $500)
-- `2026-08-11T18:28` no_trade skip_entry **UAL** — insufficient investable cash (size $55, need >= $500)
 
 _Full decision log: `state/decisions.jsonl` · full history: `state/trader.db`_
