@@ -2,7 +2,7 @@
 
 **➜ [Interactive dashboard](https://jasper-bolante.github.io/paper-trader/)** — hover/click any term to learn what it means, toggle the chart lines, and browse full trade history.
 
-_Updated 2026-08-12 19:40 UTC · inception 2026-07-08 · drawdown state: **normal**_
+_Updated 2026-08-12 21:23 UTC · inception 2026-07-08 · drawdown state: **normal**_
 
 ![equity curve](docs/equity_curve.svg)
 
@@ -10,44 +10,44 @@ _Updated 2026-08-12 19:40 UTC · inception 2026-07-08 · drawdown state: **norma
 
 | | |
 |---|---:|
-| **Equity (net of tax reserve)** | **$19,800.52** |
-| Total return since inception | -1.00% |
-| S&P 500 benchmark (same $ , dividends reinvested) | $20,739.34 (3.70%) |
-| Positions value | $18,543.90 |
-| Settled cash | $1,259.82 |
+| **Equity (net of tax reserve)** | **$19,771.03** |
+| Total return since inception | -1.14% |
+| S&P 500 benchmark (same $ , dividends reinvested) | $20,791.55 (3.96%) |
+| Positions value | $18,513.46 |
+| Settled cash | $1,260.94 |
 | Unsettled cash (T+1) | $3.60 |
-| Tax reserve | $6.80 |
+| Tax reserve | $6.97 |
 
 ## Risk-adjusted metrics
 
 | Metric | Portfolio | Benchmark |
 |---|---:|---:|
-| Total return | -1.82% | 3.51% |
-| Annualized volatility | 12.78% | 14.20% |
-| Sharpe (rf 4%) | -1.76 | 2.34 |
+| Total return | -1.21% | 3.77% |
+| Annualized volatility | 12.71% | 13.90% |
+| Sharpe (rf 4%) | -1.22 | 2.47 |
 | Max drawdown | 4.83% | 3.57% |
-| EOD observations | 25 | 25 |
+| EOD observations | 26 | 26 |
 
 ## Positions
 
 | Symbol | Qty | Avg basis | Last | Value | Unrealized | Stop |
 |---|---:|---:|---:|---:|---:|---:|
-| BAX | 28 | $27.27 | $27.21 | $762.02 | $-1.59 | $25.00 |
-| BBY | 14 | $88.05 | $83.07 | $1,162.98 | $-69.77 | $79.24 |
-| CSCO | 8 | $131.57 | $123.62 | $988.96 | $-63.63 | $110.34 |
-| CSX | 17 | $50.29 | $50.21 | $853.57 | $-1.38 | $46.01 |
-| DOC | 40 | $21.90 | $20.73 | $829.40 | $-46.67 | $18.97 |
-| FTNT | 7 | $149.43 | $160.34 | $1,122.38 | $76.34 | $151.44 |
-| HPQ | 31 | $28.20 | $29.27 | $907.37 | $33.13 | $27.04 |
-| HUM | 2 | $398.00 | $387.32 | $774.64 | $-21.35 | $348.07 |
-| MPC | 3 | $306.56 | $345.27 | $1,035.81 | $116.13 | $302.74 |
-| NTAP | 5 | $161.48 | $201.71 | $1,008.55 | $201.17 | $178.85 |
-| NUE | 2 | $269.82 | $271.89 | $543.78 | $4.14 | $242.71 |
-| PSX | 5 | $215.50 | $225.14 | $1,125.70 | $48.22 | $201.92 |
-| SPY | 5 | $743.10 | $772.73 | $3,863.65 | $148.15 | — |
-| STT | 8 | $185.86 | $189.76 | $1,518.08 | $31.21 | $168.49 |
-| VLO | 3 | $304.72 | $329.66 | $988.98 | $74.82 | $291.46 |
-| WST | 3 | $336.32 | $352.68 | $1,058.03 | $49.07 | $318.26 |
+| BAX | 28 | $27.27 | $26.95 | $754.60 | $-9.01 | $25.00 |
+| BBY | 14 | $88.05 | $83.02 | $1,162.28 | $-70.47 | $79.24 |
+| CSCO | 8 | $131.57 | $119.05 | $952.40 | $-100.19 | $110.34 |
+| CSX | 17 | $50.29 | $50.09 | $851.53 | $-3.42 | $46.01 |
+| DOC | 40 | $21.90 | $20.65 | $826.00 | $-50.07 | $18.97 |
+| FTNT | 7 | $149.43 | $160.77 | $1,125.39 | $79.35 | $151.44 |
+| HPQ | 31 | $28.20 | $29.27 | $907.22 | $32.98 | $27.04 |
+| HUM | 2 | $398.00 | $388.77 | $777.54 | $-18.45 | $349.89 |
+| MPC | 3 | $306.56 | $348.19 | $1,044.59 | $124.91 | $313.38 |
+| NTAP | 5 | $161.48 | $202.01 | $1,010.05 | $202.67 | $181.81 |
+| NUE | 2 | $269.82 | $271.58 | $543.17 | $3.53 | $244.43 |
+| PSX | 5 | $215.50 | $225.53 | $1,127.65 | $50.17 | $202.98 |
+| SPY | 5 | $743.10 | $772.51 | $3,862.55 | $147.05 | — |
+| STT | 8 | $185.86 | $190.11 | $1,520.88 | $34.01 | $171.10 |
+| VLO | 3 | $304.72 | $330.34 | $991.02 | $76.86 | $297.31 |
+| WST | 3 | $336.32 | $352.20 | $1,056.60 | $47.64 | $318.26 |
 
 ## Realized gains & tax
 
@@ -55,10 +55,12 @@ _Updated 2026-08-12 19:40 UTC · inception 2026-07-08 · drawdown state: **norma
 |---|---:|---:|---:|
 | 2026 | $-816.00 | $0.00 | $378.72 |
 
-Dividends received: $45.34. Assumed rates: 24% short-term, 15% long-term, 15% dividends, no state tax.
+Dividends received: $46.46. Assumed rates: 24% short-term, 15% long-term, 15% dividends, no state tax.
 
 ## Recent decisions
 
+- `2026-08-12T21:23` system **NUE** — cash settles on pay date; 15% dividend tax reserved
+- `2026-08-12T21:23` system — corporate_actions_synced
 - `2026-08-12T19:40` no_trade — no signals crossed action thresholds this hour
 - `2026-08-12T19:40` no_trade skip_entry — no entry slots (positions 15/15, new today 1/2)
 - `2026-08-12T18:29` no_trade — no signals crossed action thresholds this hour
@@ -72,7 +74,5 @@ Dividends received: $45.34. Assumed rates: 24% short-term, 15% long-term, 15% di
 - `2026-08-11T21:24` system — corporate_actions_synced
 - `2026-08-11T19:38` no_trade — no signals crossed action thresholds this hour
 - `2026-08-11T19:38` no_trade skip_entry **TGT** — insufficient investable cash (size $53, need >= $500)
-- `2026-08-11T19:38` no_trade skip_entry **URI** — insufficient investable cash (size $53, need >= $500)
-- `2026-08-11T19:38` no_trade skip_entry **NUE** — insufficient investable cash (size $53, need >= $500)
 
 _Full decision log: `state/decisions.jsonl` · full history: `state/trader.db`_
