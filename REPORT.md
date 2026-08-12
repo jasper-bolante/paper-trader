@@ -2,7 +2,7 @@
 
 **➜ [Interactive dashboard](https://jasper-bolante.github.io/paper-trader/)** — hover/click any term to learn what it means, toggle the chart lines, and browse full trade history.
 
-_Updated 2026-08-12 16:28 UTC · inception 2026-07-08 · drawdown state: **normal**_
+_Updated 2026-08-12 17:32 UTC · inception 2026-07-08 · drawdown state: **normal**_
 
 ![equity curve](docs/equity_curve.svg)
 
@@ -10,10 +10,10 @@ _Updated 2026-08-12 16:28 UTC · inception 2026-07-08 · drawdown state: **norma
 
 | | |
 |---|---:|
-| **Equity (net of tax reserve)** | **$19,774.23** |
-| Total return since inception | -1.13% |
+| **Equity (net of tax reserve)** | **$19,747.63** |
+| Total return since inception | -1.26% |
 | S&P 500 benchmark (same $ , dividends reinvested) | $20,739.34 (3.70%) |
-| Positions value | $18,517.61 |
+| Positions value | $18,491.01 |
 | Settled cash | $1,259.82 |
 | Unsettled cash (T+1) | $3.60 |
 | Tax reserve | $6.80 |
@@ -32,22 +32,22 @@ _Updated 2026-08-12 16:28 UTC · inception 2026-07-08 · drawdown state: **norma
 
 | Symbol | Qty | Avg basis | Last | Value | Unrealized | Stop |
 |---|---:|---:|---:|---:|---:|---:|
-| BAX | 28 | $27.27 | $27.03 | $756.84 | $-6.77 | $25.00 |
-| BBY | 14 | $88.05 | $83.30 | $1,166.20 | $-66.55 | $79.24 |
-| CSCO | 8 | $131.57 | $122.78 | $982.24 | $-70.35 | $110.34 |
-| CSX | 17 | $50.29 | $50.05 | $850.85 | $-4.10 | $46.01 |
-| DOC | 40 | $21.90 | $20.74 | $829.60 | $-46.47 | $18.97 |
-| FTNT | 7 | $149.43 | $164.10 | $1,148.70 | $102.66 | $151.44 |
-| HPQ | 31 | $28.20 | $28.82 | $893.26 | $19.02 | $27.04 |
-| HUM | 2 | $398.00 | $385.13 | $770.26 | $-25.73 | $348.07 |
-| MPC | 3 | $306.56 | $342.49 | $1,027.47 | $107.79 | $302.74 |
-| NTAP | 5 | $161.48 | $200.92 | $1,004.60 | $197.22 | $178.85 |
-| NUE | 2 | $269.82 | $270.82 | $541.64 | $2.00 | $242.71 |
-| PSX | 5 | $215.50 | $224.85 | $1,124.27 | $46.79 | $201.92 |
-| SPY | 5 | $743.10 | $772.48 | $3,862.38 | $146.88 | — |
-| STT | 8 | $185.86 | $189.62 | $1,516.96 | $30.09 | $168.49 |
-| VLO | 3 | $304.72 | $328.09 | $984.27 | $70.11 | $291.46 |
-| WST | 3 | $336.32 | $352.69 | $1,058.07 | $49.11 | $318.26 |
+| BAX | 28 | $27.27 | $27.10 | $758.80 | $-4.81 | $25.00 |
+| BBY | 14 | $88.05 | $83.14 | $1,163.96 | $-68.79 | $79.24 |
+| CSCO | 8 | $131.57 | $122.88 | $983.00 | $-69.59 | $110.34 |
+| CSX | 17 | $50.29 | $50.01 | $850.09 | $-4.87 | $46.01 |
+| DOC | 40 | $21.90 | $20.73 | $829.20 | $-46.87 | $18.97 |
+| FTNT | 7 | $149.43 | $161.45 | $1,130.15 | $84.11 | $151.44 |
+| HPQ | 31 | $28.20 | $28.79 | $892.49 | $18.25 | $27.04 |
+| HUM | 2 | $398.00 | $385.09 | $770.18 | $-25.81 | $348.07 |
+| MPC | 3 | $306.56 | $342.04 | $1,026.12 | $106.44 | $302.74 |
+| NTAP | 5 | $161.48 | $201.15 | $1,005.73 | $198.35 | $178.85 |
+| NUE | 2 | $269.82 | $270.54 | $541.08 | $1.44 | $242.71 |
+| PSX | 5 | $215.50 | $224.80 | $1,124.00 | $46.52 | $201.92 |
+| SPY | 5 | $743.10 | $772.88 | $3,864.43 | $148.93 | — |
+| STT | 8 | $185.86 | $188.97 | $1,511.80 | $24.93 | $168.49 |
+| VLO | 3 | $304.72 | $328.27 | $984.81 | $70.65 | $291.46 |
+| WST | 3 | $336.32 | $351.73 | $1,055.19 | $46.23 | $318.26 |
 
 ## Realized gains & tax
 
@@ -59,6 +59,8 @@ Dividends received: $45.34. Assumed rates: 24% short-term, 15% long-term, 15% di
 
 ## Recent decisions
 
+- `2026-08-12T17:32` no_trade — no signals crossed action thresholds this hour
+- `2026-08-12T17:32` no_trade skip_entry — no entry slots (positions 15/15, new today 1/2)
 - `2026-08-12T16:28` no_trade — no signals crossed action thresholds this hour
 - `2026-08-12T16:28` no_trade skip_entry — no entry slots (positions 15/15, new today 1/2)
 - `2026-08-12T14:38` entry buy **NUE** — momentum entry: rank 9, mom 0.364, vol 34%
@@ -72,7 +74,5 @@ Dividends received: $45.34. Assumed rates: 24% short-term, 15% long-term, 15% di
 - `2026-08-11T19:38` no_trade skip_entry **UAL** — insufficient investable cash (size $53, need >= $500)
 - `2026-08-11T19:38` no_trade skip_entry **CNC** — insufficient investable cash (size $53, need >= $500)
 - `2026-08-11T19:38` no_trade skip_entry **DAL** — insufficient investable cash (size $53, need >= $500)
-- `2026-08-11T19:38` no_trade skip_entry **FFIV** — insufficient investable cash (size $53, need >= $500)
-- `2026-08-11T18:28` no_trade — no signals crossed action thresholds this hour
 
 _Full decision log: `state/decisions.jsonl` · full history: `state/trader.db`_
