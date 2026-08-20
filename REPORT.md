@@ -2,7 +2,7 @@
 
 **➜ [Interactive dashboard](https://jasper-bolante.github.io/paper-trader/)** — hover/click any term to learn what it means, toggle the chart lines, and browse full trade history.
 
-_Updated 2026-08-20 17:02 UTC · inception 2026-07-08 · drawdown state: **normal**_
+_Updated 2026-08-20 17:58 UTC · inception 2026-07-08 · drawdown state: **normal**_
 
 ![equity curve](docs/equity_curve.svg)
 
@@ -10,10 +10,10 @@ _Updated 2026-08-20 17:02 UTC · inception 2026-07-08 · drawdown state: **norma
 
 | | |
 |---|---:|
-| **Equity (net of tax reserve)** | **$19,698.55** |
-| Total return since inception | -1.51% |
+| **Equity (net of tax reserve)** | **$19,654.99** |
+| Total return since inception | -1.73% |
 | S&P 500 benchmark (same $ , dividends reinvested) | $20,700.58 (3.50%) |
-| Positions value | $16,763.45 |
+| Positions value | $16,719.88 |
 | Settled cash | $1,356.79 |
 | Unsettled cash (T+1) | $1,586.68 |
 | Tax reserve | $8.37 |
@@ -32,21 +32,21 @@ _Updated 2026-08-20 17:02 UTC · inception 2026-07-08 · drawdown state: **norma
 
 | Symbol | Qty | Avg basis | Last | Value | Unrealized | Stop |
 |---|---:|---:|---:|---:|---:|---:|
-| BAX | 28 | $27.27 | $26.34 | $737.66 | $-25.95 | $25.00 |
-| BBY | 14 | $88.05 | $86.33 | $1,208.55 | $-24.20 | $80.33 |
-| CRL | 2 | $285.12 | $295.13 | $590.27 | $20.03 | $260.98 |
-| CSX | 17 | $50.29 | $51.26 | $871.34 | $16.38 | $46.01 |
-| EXPE | 2 | $331.47 | $327.50 | $655.00 | $-7.94 | $298.17 |
-| IQV | 2 | $255.46 | $259.33 | $518.66 | $7.75 | $229.79 |
-| MPC | 3 | $306.56 | $364.02 | $1,092.06 | $172.38 | $330.10 |
-| NTAP | 5 | $161.48 | $195.80 | $979.00 | $171.62 | $186.39 |
-| PANW | 2 | $388.28 | $354.12 | $708.24 | $-68.32 | $349.27 |
-| PSX | 5 | $215.50 | $243.93 | $1,219.65 | $142.17 | $219.13 |
-| SPY | 5 | $743.10 | $766.08 | $3,830.38 | $114.88 | — |
-| STT | 8 | $185.86 | $185.91 | $1,487.32 | $0.45 | $173.64 |
-| VEEV | 3 | $250.82 | $252.12 | $756.36 | $3.89 | $225.62 |
-| VLO | 3 | $304.72 | $346.09 | $1,038.27 | $124.11 | $315.01 |
-| WST | 3 | $336.32 | $356.90 | $1,070.70 | $61.74 | $318.26 |
+| BAX | 28 | $27.27 | $26.26 | $735.28 | $-28.33 | $25.00 |
+| BBY | 14 | $88.05 | $86.22 | $1,207.15 | $-25.60 | $80.33 |
+| CRL | 2 | $285.12 | $295.41 | $590.82 | $20.58 | $260.98 |
+| CSX | 17 | $50.29 | $51.13 | $869.29 | $14.34 | $46.01 |
+| EXPE | 2 | $331.47 | $327.31 | $654.62 | $-8.32 | $298.17 |
+| IQV | 2 | $255.46 | $259.08 | $518.16 | $7.25 | $229.79 |
+| MPC | 3 | $306.56 | $360.98 | $1,082.94 | $163.26 | $330.10 |
+| NTAP | 5 | $161.48 | $196.16 | $980.80 | $173.42 | $186.39 |
+| PANW | 2 | $388.28 | $352.55 | $705.10 | $-71.46 | $349.27 |
+| PSX | 5 | $215.50 | $243.15 | $1,215.75 | $138.27 | $219.13 |
+| SPY | 5 | $743.10 | $764.73 | $3,823.65 | $108.15 | — |
+| STT | 8 | $185.86 | $185.37 | $1,482.96 | $-3.91 | $173.64 |
+| VEEV | 3 | $250.82 | $251.50 | $754.50 | $2.03 | $225.62 |
+| VLO | 3 | $304.72 | $343.54 | $1,030.61 | $116.45 | $315.01 |
+| WST | 3 | $336.32 | $356.08 | $1,068.25 | $59.29 | $318.26 |
 
 ## Realized gains & tax
 
@@ -58,6 +58,8 @@ Dividends received: $55.81. Assumed rates: 24% short-term, 15% long-term, 15% di
 
 ## Recent decisions
 
+- `2026-08-20T17:58` no_trade — no signals crossed action thresholds this hour
+- `2026-08-20T17:58` no_trade skip_entry — no entry slots (positions 14/15, new today 2/2)
 - `2026-08-20T17:02` no_trade — no signals crossed action thresholds this hour
 - `2026-08-20T17:02` no_trade skip_entry — no entry slots (positions 14/15, new today 2/2)
 - `2026-08-20T16:01` no_trade — no signals crossed action thresholds this hour
@@ -71,7 +73,5 @@ Dividends received: $55.81. Assumed rates: 24% short-term, 15% long-term, 15% di
 - `2026-08-19T20:56` system — eod_complete
 - `2026-08-19T20:56` system — corporate_actions_synced
 - `2026-08-19T19:51` no_trade — no signals crossed action thresholds this hour
-- `2026-08-19T19:51` no_trade skip_entry **WSM** — insufficient investable cash (size $374, need >= $500)
-- `2026-08-19T19:51` no_trade skip_entry **NUE** — insufficient investable cash (size $374, need >= $500)
 
 _Full decision log: `state/decisions.jsonl` · full history: `state/trader.db`_
