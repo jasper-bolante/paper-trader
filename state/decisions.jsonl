@@ -2443,3 +2443,4 @@
 {"ts": "2026-08-25T19:57:00+00:00", "run_id": "20260825T155659-b42de5", "kind": "hold", "symbol": "WST", "action": "hold", "detail": {"qty": 3.0, "last": 349.51, "rank": 26, "ma_exit": 323.0961, "held_trading_days": 18, "stop": 318.4875}}
 {"ts": "2026-08-25T19:57:00+00:00", "run_id": "20260825T155659-b42de5", "kind": "no_trade", "symbol": null, "action": "skip_entry", "detail": {"symbol": null, "reason": "no entry slots (positions 15/15, new today 0/2)"}}
 {"ts": "2026-08-25T19:57:00+00:00", "run_id": "20260825T155659-b42de5", "kind": "no_trade", "symbol": null, "action": null, "detail": {"reason": "no signals crossed action thresholds this hour", "drawdown_state": "normal", "equity": 19578.42, "settled_cash": 2510.89, "positions": 16}}
+{"ts": "2026-08-25T20:57:08+00:00", "run_id": "20260825T165708-d42c4f", "kind": "system", "symbol": null, "action": null, "detail": {"event": "eod_complete", "equity": 19562.22, "hwm": 20142.1}}
