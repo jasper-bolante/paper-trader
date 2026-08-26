@@ -2494,3 +2494,4 @@
 {"ts": "2026-08-26T18:18:22+00:00", "run_id": "20260826T141822-89a06f", "kind": "hold", "symbol": "VLO", "action": "hold", "detail": {"qty": 3.0, "last": 347.44, "rank": 6, "ma_exit": 271.1277, "held_trading_days": 28, "stop": 315.009}}
 {"ts": "2026-08-26T18:18:22+00:00", "run_id": "20260826T141822-89a06f", "kind": "no_trade", "symbol": null, "action": "skip_entry", "detail": {"symbol": null, "reason": "no entry slots (positions 15/15, new today 1/2)"}}
 {"ts": "2026-08-26T18:18:22+00:00", "run_id": "20260826T141822-89a06f", "kind": "no_trade", "symbol": null, "action": null, "detail": {"reason": "no signals crossed action thresholds this hour", "drawdown_state": "normal", "equity": 19696.44, "settled_cash": 1716.01, "positions": 16}}
+{"ts": "2026-08-26T21:00:31+00:00", "run_id": "20260826T170030-5d0cb0", "kind": "system", "symbol": null, "action": null, "detail": {"event": "eod_complete", "equity": 19677.62, "hwm": 20142.1}}
