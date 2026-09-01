@@ -2,7 +2,7 @@
 
 **➜ [Interactive dashboard](https://jasper-bolante.github.io/paper-trader/)** — hover/click any term to learn what it means, toggle the chart lines, and browse full trade history.
 
-_Updated 2026-09-01 00:02 UTC · inception 2026-07-08 · drawdown state: **normal**_
+_Updated 2026-09-01 17:25 UTC · inception 2026-07-08 · drawdown state: **normal**_
 
 ![equity curve](docs/equity_curve.svg)
 
@@ -10,12 +10,12 @@ _Updated 2026-09-01 00:02 UTC · inception 2026-07-08 · drawdown state: **norma
 
 | | |
 |---|---:|
-| **Equity (net of tax reserve)** | **$19,762.96** |
-| Total return since inception | -1.19% |
+| **Equity (net of tax reserve)** | **$19,604.06** |
+| Total return since inception | -1.98% |
 | S&P 500 benchmark (same $ , dividends reinvested) | $20,639.75 (3.20%) |
-| Positions value | $15,976.05 |
-| Settled cash | $1,038.54 |
-| Unsettled cash (T+1) | $2,757.78 |
+| Positions value | $17,088.47 |
+| Settled cash | $1,733.37 |
+| Unsettled cash (T+1) | $791.63 |
 | Tax reserve | $9.41 |
 
 ## Risk-adjusted metrics
@@ -32,32 +32,37 @@ _Updated 2026-09-01 00:02 UTC · inception 2026-07-08 · drawdown state: **norma
 
 | Symbol | Qty | Avg basis | Last | Value | Unrealized | Stop |
 |---|---:|---:|---:|---:|---:|---:|
-| BAX | 28 | $27.27 | $26.00 | $728.00 | $-35.61 | $25.00 |
-| CRL | 2 | $285.12 | $288.94 | $577.89 | $7.65 | $268.70 |
-| CSX | 17 | $50.29 | $50.49 | $858.33 | $3.38 | $46.58 |
-| EXPE | 2 | $331.47 | $317.11 | $634.22 | $-28.72 | $305.24 |
-| FDS | 2 | $299.76 | $313.79 | $627.57 | $28.04 | $282.41 |
-| FTNT | 5 | $171.82 | $170.90 | $854.50 | $-4.58 | $154.62 |
-| HUM | 2 | $406.24 | $384.24 | $768.48 | $-43.99 | $357.63 |
-| IQV | 2 | $255.46 | $261.34 | $522.68 | $11.77 | $235.96 |
-| MPC | 3 | $306.56 | $373.36 | $1,120.08 | $200.40 | $336.02 |
-| NTAP | 4 | $187.95 | $185.25 | $741.00 | $-10.79 | $174.52 |
-| PSX | 5 | $215.50 | $246.82 | $1,234.10 | $156.62 | $222.14 |
-| SPY | 5 | $743.10 | $766.87 | $3,834.35 | $118.85 | — |
-| STT | 8 | $185.86 | $191.21 | $1,529.68 | $42.81 | $174.19 |
-| TECH | 12 | $72.32 | $72.32 | $867.84 | $-0.00 | $65.09 |
-| VLO | 3 | $304.72 | $359.11 | $1,077.33 | $163.17 | $323.20 |
+| BAX | 28 | $27.27 | $25.91 | $725.62 | $-37.99 | $25.00 |
+| CRL | 2 | $285.12 | $282.78 | $565.56 | $-4.68 | $268.70 |
+| CSX | 17 | $50.29 | $47.91 | $814.38 | $-40.57 | $46.58 |
+| DASH | 4 | $228.34 | $228.12 | $912.48 | $-0.86 | $205.31 |
+| EXPE | 2 | $331.47 | $307.70 | $615.40 | $-47.54 | $305.24 |
+| FDS | 2 | $299.76 | $308.90 | $617.80 | $18.27 | $282.41 |
+| FTNT | 5 | $171.82 | $161.71 | $808.55 | $-50.53 | $154.62 |
+| IQV | 2 | $255.46 | $258.62 | $517.25 | $6.34 | $235.96 |
+| MPC | 3 | $306.56 | $379.67 | $1,139.01 | $219.33 | $336.02 |
+| NTAP | 4 | $187.95 | $179.64 | $718.56 | $-33.23 | $174.52 |
+| PSX | 5 | $215.50 | $250.44 | $1,252.22 | $174.74 | $222.14 |
+| SPY | 5 | $743.10 | $761.62 | $3,808.10 | $92.60 | — |
+| STT | 8 | $185.86 | $187.10 | $1,496.80 | $9.93 | $174.19 |
+| TECH | 12 | $72.32 | $72.22 | $866.64 | $-1.20 | $65.09 |
+| TGT | 7 | $162.82 | $162.73 | $1,139.11 | $-0.60 | $146.46 |
+| VLO | 3 | $304.72 | $363.66 | $1,090.98 | $176.82 | $323.20 |
 
 ## Realized gains & tax
 
 | Year | ST net (allowed) | LT net (allowed) | Wash-disallowed | 
 |---|---:|---:|---:|
-| 2026 | $-899.35 | $0.00 | $554.53 |
+| 2026 | $-930.09 | $0.00 | $554.53 |
 
 Dividends received: $62.71. Assumed rates: 24% short-term, 15% long-term, 15% dividends, no state tax.
 
 ## Recent decisions
 
+- `2026-09-01T17:25` entry buy **DASH** — momentum entry: rank 12, mom 0.410, vol 41%
+- `2026-09-01T17:25` entry buy **TGT** — momentum entry: rank 10, mom 0.426, vol 31%
+- `2026-09-01T17:25` exit sell **HUM** — momentum rank decayed (None > 150 or ineligible: below 50DMA (trend filter))
+- `2026-09-01T00:02` system — eod_complete
 - `2026-09-01T00:02` system **TECH** — cash settles on pay date; 15% dividend tax reserved
 - `2026-09-01T00:02` system — corporate_actions_synced
 - `2026-08-31T19:35` entry buy **TECH** — momentum entry: rank 11, mom 0.392, vol 4%
@@ -69,9 +74,5 @@ Dividends received: $62.71. Assumed rates: 24% short-term, 15% long-term, 15% di
 - `2026-08-31T19:35` system **CSX** — cash settles on pay date; 15% dividend tax reserved
 - `2026-08-28T23:10` system — eod_complete
 - `2026-08-28T23:10` system **BAX** — cash settles on pay date; 15% dividend tax reserved
-- `2026-08-27T23:02` system — eod_complete
-- `2026-08-27T23:02` system **EXPE** — cash settles on pay date; 15% dividend tax reserved
-- `2026-08-27T23:02` system — corporate_actions_synced
-- `2026-08-26T21:00` system — eod_complete
 
 _Full decision log: `state/decisions.jsonl` · full history: `state/trader.db`_
