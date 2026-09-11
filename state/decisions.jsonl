@@ -2745,3 +2745,4 @@
 {"ts": "2026-09-11T19:58:22+00:00", "run_id": "20260911T155822-59f1e4", "kind": "no_trade", "symbol": "CF", "action": "skip_entry", "detail": {"symbol": "CF", "rank": 19, "reason": "insufficient investable cash (size $53, need >= $500)"}}
 {"ts": "2026-09-11T19:58:22+00:00", "run_id": "20260911T155822-59f1e4", "kind": "no_trade", "symbol": "NUE", "action": "skip_entry", "detail": {"symbol": "NUE", "rank": 20, "reason": "insufficient investable cash (size $53, need >= $500)"}}
 {"ts": "2026-09-11T19:58:22+00:00", "run_id": "20260911T155822-59f1e4", "kind": "no_trade", "symbol": null, "action": null, "detail": {"reason": "no signals crossed action thresholds this hour", "drawdown_state": "normal", "equity": 19602.42, "settled_cash": 1043.36, "positions": 15}}
+{"ts": "2026-09-11T22:44:26+00:00", "run_id": "20260911T184426-50c8d2", "kind": "system", "symbol": null, "action": null, "detail": {"event": "eod_complete", "equity": 19603.71, "hwm": 20142.1}}
