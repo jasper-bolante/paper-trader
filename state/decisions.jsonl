@@ -2812,3 +2812,4 @@
 {"ts": "2026-09-16T17:42:21+00:00", "run_id": "20260916T134213-318dec", "kind": "no_trade", "symbol": "CNC", "action": "skip_entry", "detail": {"symbol": "CNC", "rank": 18, "reason": "insufficient investable cash (size $77, need >= $500)"}}
 {"ts": "2026-09-16T17:42:21+00:00", "run_id": "20260916T134213-318dec", "kind": "no_trade", "symbol": "MET", "action": "skip_entry", "detail": {"symbol": "MET", "rank": 19, "reason": "insufficient investable cash (size $77, need >= $500)"}}
 {"ts": "2026-09-16T17:42:21+00:00", "run_id": "20260916T134213-318dec", "kind": "no_trade", "symbol": "GEN", "action": "skip_entry", "detail": {"symbol": "GEN", "rank": 21, "reason": "insufficient investable cash (size $77, need >= $500)"}}
+{"ts": "2026-09-16T21:37:04+00:00", "run_id": "20260916T173703-5b95fb", "kind": "system", "symbol": null, "action": null, "detail": {"event": "eod_complete", "equity": 19792.82, "hwm": 20142.1}}
