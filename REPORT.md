@@ -2,7 +2,7 @@
 
 **➜ [Interactive dashboard](https://jasper-bolante.github.io/paper-trader/)** — hover/click any term to learn what it means, toggle the chart lines, and browse full trade history.
 
-_Updated 2026-09-16 21:37 UTC · inception 2026-07-08 · drawdown state: **normal**_
+_Updated 2026-09-17 17:43 UTC · inception 2026-07-08 · drawdown state: **normal**_
 
 ![equity curve](docs/equity_curve.svg)
 
@@ -10,13 +10,13 @@ _Updated 2026-09-16 21:37 UTC · inception 2026-07-08 · drawdown state: **norma
 
 | | |
 |---|---:|
-| **Equity (net of tax reserve)** | **$19,792.82** |
-| Total return since inception | -1.04% |
+| **Equity (net of tax reserve)** | **$20,046.70** |
+| Total return since inception | 0.23% |
 | S&P 500 benchmark (same $ , dividends reinvested) | $20,294.71 (1.47%) |
-| Positions value | $16,475.24 |
-| Settled cash | $1,083.84 |
-| Unsettled cash (T+1) | $2,245.65 |
-| Tax reserve | $11.90 |
+| Positions value | $15,950.82 |
+| Settled cash | $1,429.21 |
+| Unsettled cash (T+1) | $2,679.72 |
+| Tax reserve | $13.05 |
 
 ## Risk-adjusted metrics
 
@@ -32,31 +32,37 @@ _Updated 2026-09-16 21:37 UTC · inception 2026-07-08 · drawdown state: **norma
 
 | Symbol | Qty | Avg basis | Last | Value | Unrealized | Stop |
 |---|---:|---:|---:|---:|---:|---:|
-| ANET | 4 | $191.78 | $197.71 | $790.84 | $23.72 | $177.94 |
-| BBY | 8 | $101.21 | $92.42 | $739.32 | $-70.36 | $83.90 |
-| FDS | 3 | $293.49 | $276.31 | $828.93 | $-51.53 | $253.30 |
-| GPC | 8 | $132.94 | $130.56 | $1,044.48 | $-19.05 | $119.77 |
-| HUM | 2 | $426.49 | $384.81 | $769.61 | $-83.36 | $371.57 |
-| IQV | 2 | $255.46 | $268.84 | $537.68 | $26.77 | $244.26 |
-| MPC | 3 | $306.56 | $413.34 | $1,240.02 | $320.34 | $372.01 |
-| NTAP | 5 | $206.27 | $191.50 | $957.52 | $-73.82 | $179.40 |
-| PSX | 5 | $215.50 | $264.62 | $1,323.10 | $245.62 | $238.47 |
-| RVTY | 9 | $122.75 | $145.90 | $1,313.10 | $208.38 | $131.31 |
-| SPY | 5 | $743.10 | $754.05 | $3,770.25 | $54.75 | — |
-| TECH | 12 | $72.32 | $72.32 | $867.84 | $-0.00 | $65.20 |
-| TGT | 7 | $162.82 | $154.65 | $1,082.55 | $-57.16 | $147.91 |
-| VLO | 3 | $304.72 | $403.33 | $1,209.99 | $295.83 | $363.00 |
+| ANET | 4 | $191.78 | $199.19 | $796.76 | $29.64 | $177.94 |
+| BBY | 8 | $101.21 | $94.17 | $753.32 | $-56.36 | $83.90 |
+| CRL | 3 | $296.67 | $285.21 | $855.64 | $-34.38 | $256.69 |
+| IQV | 2 | $255.46 | $270.50 | $541.00 | $30.09 | $244.26 |
+| MPC | 3 | $306.56 | $421.89 | $1,265.67 | $345.99 | $372.01 |
+| NTAP | 5 | $206.27 | $196.80 | $984.00 | $-47.35 | $179.40 |
+| PSX | 5 | $215.50 | $272.03 | $1,360.15 | $282.67 | $238.47 |
+| RVTY | 9 | $122.75 | $148.69 | $1,338.16 | $233.44 | $131.31 |
+| SPY | 5 | $743.10 | $762.37 | $3,811.85 | $96.35 | — |
+| TECH | 12 | $72.32 | $72.42 | $868.98 | $1.14 | $65.20 |
+| TGT | 7 | $162.82 | $158.69 | $1,110.83 | $-28.88 | $147.91 |
+| VLO | 3 | $304.72 | $409.88 | $1,229.62 | $315.47 | $363.00 |
+| ZBRA | 3 | $345.13 | $344.94 | $1,034.82 | $-0.56 | $310.45 |
 
 ## Realized gains & tax
 
 | Year | ST net (allowed) | LT net (allowed) | Wash-disallowed | 
 |---|---:|---:|---:|
-| 2026 | $-1,094.73 | $0.00 | $1,021.65 |
+| 2026 | $-1,194.54 | $0.00 | $1,055.55 |
 
-Dividends received: $79.33. Assumed rates: 24% short-term, 15% long-term, 15% dividends, no state tax.
+Dividends received: $87.01. Assumed rates: 24% short-term, 15% long-term, 15% dividends, no state tax.
 
 ## Recent decisions
 
+- `2026-09-17T17:43` entry buy **ZBRA** — momentum entry: rank 4, mom 0.548, vol 26%
+- `2026-09-17T17:43` entry buy **CRL** — momentum entry: rank 3, mom 0.565, vol 42%
+- `2026-09-17T17:43` exit sell **HUM** — momentum rank decayed (None > 150 or ineligible: below 50DMA (trend filter))
+- `2026-09-17T17:43` exit sell **GPC** — momentum rank decayed (None > 150 or ineligible: below 50DMA (trend filter))
+- `2026-09-17T17:43` exit sell **FDS** — momentum rank decayed (None > 150 or ineligible: below 50DMA (trend filter))
+- `2026-09-17T17:43` system **BBY** — cash settles on pay date; 15% dividend tax reserved
+- `2026-09-16T21:37` system — eod_complete
 - `2026-09-16T17:42` no_trade skip_entry **GEN** — insufficient investable cash (size $77, need >= $500)
 - `2026-09-16T17:42` no_trade skip_entry **MET** — insufficient investable cash (size $77, need >= $500)
 - `2026-09-16T17:42` no_trade skip_entry **CNC** — insufficient investable cash (size $77, need >= $500)
@@ -65,12 +71,5 @@ Dividends received: $79.33. Assumed rates: 24% short-term, 15% long-term, 15% di
 - `2026-09-16T17:42` no_trade skip_entry **NUE** — insufficient investable cash (size $77, need >= $500)
 - `2026-09-16T17:42` no_trade skip_entry **GPN** — insufficient investable cash (size $77, need >= $500)
 - `2026-09-16T17:42` no_trade skip_entry **CRL** — insufficient investable cash (size $77, need >= $500)
-- `2026-09-16T17:42` exit sell **STT** — momentum rank decayed (None > 150 or ineligible: below 50DMA (trend filter))
-- `2026-09-16T17:42` exit sell **INCY** — momentum rank decayed (None > 150 or ineligible: below 50DMA (trend filter))
-- `2026-09-15T21:41` system — eod_complete
-- `2026-09-15T17:44` entry buy **BBY** — momentum entry: rank 13, mom 0.308, vol 41%
-- `2026-09-15T17:44` entry buy **ANET** — momentum entry: rank 11, mom 0.357, vol 49%
-- `2026-09-15T17:44` no_trade skip_entry **CRL** — sector cap: Health Care would exceed 25% of equity
-- `2026-09-14T22:42` system — eod_complete
 
 _Full decision log: `state/decisions.jsonl` · full history: `state/trader.db`_
