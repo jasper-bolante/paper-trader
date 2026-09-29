@@ -2973,3 +2973,5 @@
 {"ts": "2026-09-29T18:49:50+00:00", "run_id": "20260929T144944-2a16e8", "kind": "hold", "symbol": "ZBRA", "action": "hold", "detail": {"qty": 3.0, "last": 373.51, "rank": 6, "ma_exit": 294.9399, "held_trading_days": 8, "stop": 334.5795}}
 {"ts": "2026-09-29T18:49:50+00:00", "run_id": "20260929T144944-2a16e8", "kind": "no_trade", "symbol": null, "action": "skip_entry", "detail": {"symbol": null, "reason": "no entry slots (positions 15/15, new today 0/2)"}}
 {"ts": "2026-09-29T18:49:50+00:00", "run_id": "20260929T144944-2a16e8", "kind": "no_trade", "symbol": null, "action": null, "detail": {"reason": "no signals crossed action thresholds this hour", "drawdown_state": "normal", "equity": 19646.52, "settled_cash": 1333.14, "positions": 16}}
+{"ts": "2026-09-29T23:08:07+00:00", "run_id": "20260929T190807-59a60d", "kind": "system", "symbol": null, "action": null, "detail": {"event": "corporate_actions_synced", "new_rows": 1}}
+{"ts": "2026-09-29T23:08:07+00:00", "run_id": "20260929T190807-59a60d", "kind": "system", "symbol": null, "action": null, "detail": {"event": "eod_complete", "equity": 19657.85, "hwm": 20142.1}}
