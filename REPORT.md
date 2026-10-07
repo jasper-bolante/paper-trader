@@ -2,7 +2,7 @@
 
 **➜ [Interactive dashboard](https://jasper-bolante.github.io/paper-trader/)** — hover/click any term to learn what it means, toggle the chart lines, and browse full trade history.
 
-_Updated 2026-10-06 23:11 UTC · inception 2026-07-08 · drawdown state: **normal**_
+_Updated 2026-10-07 19:28 UTC · inception 2026-07-08 · drawdown state: **normal**_
 
 ![equity curve](docs/equity_curve.svg)
 
@@ -10,12 +10,12 @@ _Updated 2026-10-06 23:11 UTC · inception 2026-07-08 · drawdown state: **norma
 
 | | |
 |---|---:|
-| **Equity (net of tax reserve)** | **$20,274.76** |
-| Total return since inception | 1.37% |
+| **Equity (net of tax reserve)** | **$20,319.69** |
+| Total return since inception | 1.60% |
 | S&P 500 benchmark (same $ , dividends reinvested) | $20,973.22 (4.87%) |
-| Positions value | $17,169.85 |
-| Settled cash | $1,341.92 |
-| Unsettled cash (T+1) | $1,777.46 |
+| Positions value | $18,588.27 |
+| Settled cash | $1,728.77 |
+| Unsettled cash (T+1) | $17.12 |
 | Tax reserve | $14.47 |
 
 ## Risk-adjusted metrics
@@ -32,20 +32,22 @@ _Updated 2026-10-06 23:11 UTC · inception 2026-07-08 · drawdown state: **norma
 
 | Symbol | Qty | Avg basis | Last | Value | Unrealized | Stop |
 |---|---:|---:|---:|---:|---:|---:|
-| ANET | 4 | $191.78 | $215.43 | $861.72 | $94.60 | $193.89 |
-| APA | 19 | $44.15 | $44.11 | $838.09 | $-0.80 | $39.73 |
-| CRL | 3 | $296.67 | $305.38 | $916.14 | $26.12 | $279.86 |
-| FFIV | 2 | $448.44 | $470.10 | $940.20 | $43.31 | $423.09 |
-| IQV | 2 | $255.46 | $259.90 | $519.80 | $8.89 | $247.54 |
-| MPC | 3 | $399.06 | $432.44 | $1,297.31 | $100.13 | $390.17 |
-| NTAP | 5 | $206.27 | $228.45 | $1,142.25 | $110.90 | $205.60 |
-| PSX | 5 | $215.50 | $269.74 | $1,348.70 | $271.22 | $246.58 |
-| RVTY | 9 | $122.75 | $153.37 | $1,380.33 | $275.61 | $141.67 |
-| SPY | 5 | $743.10 | $779.26 | $3,896.30 | $180.80 | — |
-| TECH | 12 | $72.32 | $72.44 | $869.28 | $1.44 | $65.36 |
-| VLO | 3 | $392.61 | $419.26 | $1,257.78 | $79.96 | $377.45 |
-| WST | 2 | $370.69 | $372.98 | $745.95 | $4.57 | $339.09 |
-| ZBRA | 3 | $345.13 | $385.33 | $1,156.00 | $120.62 | $346.80 |
+| AMD | 1 | $650.00 | $642.90 | $642.90 | $-7.10 | $578.61 |
+| ANET | 4 | $191.78 | $215.94 | $863.78 | $96.66 | $193.89 |
+| APA | 19 | $44.15 | $43.84 | $833.05 | $-5.84 | $39.73 |
+| CRL | 3 | $296.67 | $301.87 | $905.61 | $15.59 | $279.86 |
+| FFIV | 2 | $448.44 | $468.72 | $937.44 | $40.55 | $423.09 |
+| IQV | 2 | $255.46 | $258.26 | $516.52 | $5.61 | $247.54 |
+| META | 1 | $723.49 | $722.90 | $722.90 | $-0.59 | $650.61 |
+| MPC | 3 | $399.06 | $440.80 | $1,322.40 | $125.23 | $390.17 |
+| NTAP | 5 | $206.27 | $236.59 | $1,182.95 | $151.60 | $205.60 |
+| PSX | 5 | $215.50 | $271.32 | $1,356.60 | $279.12 | $246.58 |
+| RVTY | 9 | $122.75 | $153.77 | $1,383.93 | $279.21 | $141.67 |
+| SPY | 5 | $743.10 | $777.15 | $3,885.77 | $170.27 | — |
+| TECH | 12 | $72.32 | $72.52 | $870.18 | $2.34 | $65.36 |
+| VLO | 3 | $392.61 | $422.36 | $1,267.08 | $89.26 | $377.45 |
+| WST | 2 | $370.69 | $368.69 | $737.38 | $-4.00 | $339.09 |
+| ZBRA | 3 | $345.13 | $386.59 | $1,159.77 | $124.39 | $346.80 |
 
 ## Realized gains & tax
 
@@ -57,20 +59,20 @@ Dividends received: $96.45. Assumed rates: 24% short-term, 15% long-term, 15% di
 
 ## Recent decisions
 
+- `2026-10-07T19:28` entry buy **META** — momentum entry: rank 20, mom 0.344, vol 47%
+- `2026-10-07T19:28` entry buy **AMD** — momentum entry: rank 2, mom 1.073, vol 49%
+- `2026-10-07T19:28` no_trade skip_entry **TMO** — sector cap: Health Care would exceed 25% of equity
+- `2026-10-07T19:28` no_trade skip_entry **MSFT** — sector cap: Information Technology would exceed 25% of equity
+- `2026-10-07T19:28` no_trade skip_entry **A** — sector cap: Health Care would exceed 25% of equity
+- `2026-10-07T19:28` no_trade skip_entry **PLTR** — sector cap: Information Technology would exceed 25% of equity
+- `2026-10-07T19:28` no_trade skip_entry **HPQ** — sector cap: Information Technology would exceed 25% of equity
+- `2026-10-07T19:28` no_trade skip_entry **DDOG** — sector cap: Information Technology would exceed 25% of equity
+- `2026-10-07T19:28` no_trade skip_entry **FTNT** — sector cap: Information Technology would exceed 25% of equity
+- `2026-10-07T19:28` no_trade skip_entry **MU** — insufficient investable cash (size $929, need >= $500)
+- `2026-10-06T23:11` system — eod_complete
 - `2026-10-06T19:00` no_trade skip_entry **WAT** — insufficient investable cash (size $311, need >= $500)
 - `2026-10-06T19:00` no_trade skip_entry **TMO** — insufficient investable cash (size $311, need >= $500)
 - `2026-10-06T19:00` no_trade skip_entry **MSFT** — insufficient investable cash (size $311, need >= $500)
 - `2026-10-06T19:00` no_trade skip_entry **A** — insufficient investable cash (size $311, need >= $500)
-- `2026-10-06T19:00` no_trade skip_entry **PLTR** — insufficient investable cash (size $311, need >= $500)
-- `2026-10-06T19:00` no_trade skip_entry **WDAY** — insufficient investable cash (size $311, need >= $500)
-- `2026-10-06T19:00` no_trade skip_entry **FTNT** — insufficient investable cash (size $311, need >= $500)
-- `2026-10-06T19:00` no_trade skip_entry **MU** — insufficient investable cash (size $311, need >= $500)
-- `2026-10-06T19:00` exit sell **TGT** — momentum rank decayed (None > 150 or ineligible: below 50DMA (trend filter))
-- `2026-10-06T19:00` exit sell **BBY** — trailing stop 10%
-- `2026-10-06T01:43` system — eod_complete
-- `2026-10-02T23:11` system — eod_complete
-- `2026-10-02T18:39` no_trade — no signals crossed action thresholds this hour
-- `2026-10-02T18:39` no_trade skip_entry — no entry slots (positions 15/15, new today 0/2)
-- `2026-10-01T23:22` system — eod_complete
 
 _Full decision log: `state/decisions.jsonl` · full history: `state/trader.db`_
