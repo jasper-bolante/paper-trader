@@ -2,7 +2,7 @@
 
 **➜ [Interactive dashboard](https://jasper-bolante.github.io/paper-trader/)** — hover/click any term to learn what it means, toggle the chart lines, and browse full trade history.
 
-_Updated 2026-10-14 21:53 UTC · inception 2026-07-08 · drawdown state: **normal**_
+_Updated 2026-10-15 17:51 UTC · inception 2026-07-08 · drawdown state: **normal**_
 
 ![equity curve](docs/equity_curve.svg)
 
@@ -10,12 +10,12 @@ _Updated 2026-10-14 21:53 UTC · inception 2026-07-08 · drawdown state: **norma
 
 | | |
 |---|---:|
-| **Equity (net of tax reserve)** | **$20,435.53** |
-| Total return since inception | 2.18% |
+| **Equity (net of tax reserve)** | **$20,294.17** |
+| Total return since inception | 1.47% |
 | S&P 500 benchmark (same $ , dividends reinvested) | $20,692.77 (3.46%) |
-| Positions value | $18,468.67 |
-| Settled cash | $1,189.86 |
-| Unsettled cash (T+1) | $791.86 |
+| Positions value | $18,112.40 |
+| Settled cash | $1,110.01 |
+| Unsettled cash (T+1) | $1,086.62 |
 | Tax reserve | $14.86 |
 
 ## Risk-adjusted metrics
@@ -32,33 +32,36 @@ _Updated 2026-10-14 21:53 UTC · inception 2026-07-08 · drawdown state: **norma
 
 | Symbol | Qty | Avg basis | Last | Value | Unrealized | Stop |
 |---|---:|---:|---:|---:|---:|---:|
-| APA | 19 | $44.15 | $47.38 | $900.22 | $61.33 | $43.21 |
-| CRL | 3 | $296.67 | $301.90 | $905.70 | $15.68 | $279.86 |
-| DDOG | 2 | $283.76 | $269.29 | $538.58 | $-28.94 | $255.25 |
-| FFIV | 2 | $448.44 | $457.18 | $914.35 | $17.46 | $431.75 |
-| FTNT | 3 | $185.45 | $184.11 | $552.33 | $-4.03 | $166.82 |
-| IQV | 2 | $255.46 | $262.10 | $524.20 | $13.29 | $247.54 |
-| META | 1 | $723.49 | $737.46 | $737.46 | $13.97 | $686.26 |
-| MPC | 3 | $399.06 | $484.80 | $1,454.40 | $257.23 | $436.32 |
-| NTAP | 5 | $206.27 | $222.25 | $1,111.25 | $79.90 | $215.29 |
-| PSX | 5 | $215.50 | $297.35 | $1,486.73 | $409.25 | $267.61 |
-| RVTY | 9 | $122.75 | $152.17 | $1,369.53 | $264.81 | $141.67 |
-| SPY | 5 | $743.10 | $768.84 | $3,844.20 | $128.70 | — |
-| TECH | 12 | $72.32 | $72.52 | $870.24 | $2.40 | $65.36 |
-| VLO | 3 | $392.61 | $459.90 | $1,379.70 | $201.88 | $413.91 |
-| WST | 2 | $370.69 | $374.83 | $749.66 | $8.28 | $339.09 |
-| ZBRA | 3 | $345.13 | $376.71 | $1,130.13 | $94.75 | $349.27 |
+| APA | 19 | $44.15 | $47.20 | $896.71 | $57.82 | $43.21 |
+| CRL | 3 | $296.67 | $306.88 | $920.64 | $30.62 | $279.86 |
+| DDOG | 2 | $283.76 | $263.00 | $526.00 | $-41.52 | $255.25 |
+| FFIV | 2 | $448.44 | $451.70 | $903.40 | $6.51 | $431.75 |
+| FTNT | 3 | $185.45 | $181.11 | $543.33 | $-13.03 | $166.82 |
+| IQV | 2 | $255.46 | $269.08 | $538.17 | $27.26 | $247.54 |
+| META | 1 | $723.49 | $733.23 | $733.23 | $9.74 | $686.26 |
+| MPC | 3 | $399.06 | $473.12 | $1,419.35 | $222.17 | $436.32 |
+| NTAP | 4 | $214.92 | $214.85 | $859.40 | $-0.27 | $193.37 |
+| PSX | 5 | $215.50 | $289.31 | $1,446.55 | $369.07 | $267.61 |
+| RVTY | 9 | $122.75 | $155.60 | $1,400.40 | $295.68 | $141.67 |
+| SPY | 5 | $743.10 | $769.56 | $3,847.80 | $132.30 | — |
+| TECH | 12 | $72.32 | $72.53 | $870.42 | $2.58 | $65.36 |
+| VLO | 3 | $392.61 | $443.38 | $1,330.14 | $152.32 | $413.91 |
+| WST | 2 | $370.69 | $382.07 | $764.14 | $22.76 | $339.09 |
+| ZBRA | 3 | $345.13 | $370.91 | $1,112.73 | $77.35 | $349.27 |
 
 ## Realized gains & tax
 
 | Year | ST net (allowed) | LT net (allowed) | Wash-disallowed | 
 |---|---:|---:|---:|
-| 2026 | $-1,184.63 | $0.00 | $1,142.35 |
+| 2026 | $-1,141.40 | $0.00 | $1,142.35 |
 
 Dividends received: $99.05. Assumed rates: 24% short-term, 15% long-term, 15% dividends, no state tax.
 
 ## Recent decisions
 
+- `2026-10-15T17:51` entry buy **NTAP** — momentum entry: rank 1, mom 0.872, vol 46%
+- `2026-10-15T17:51` exit sell **NTAP** — trailing stop 10%
+- `2026-10-14T21:53` system — eod_complete
 - `2026-10-14T18:08` entry buy **FTNT** — momentum entry: rank 2, mom 0.753, vol 41%
 - `2026-10-14T18:08` exit sell **ANET** — trailing stop 10%
 - `2026-10-13T23:49` system — eod_complete
@@ -71,8 +74,5 @@ Dividends received: $99.05. Assumed rates: 24% short-term, 15% long-term, 15% di
 - `2026-10-09T18:57` no_trade — no signals crossed action thresholds this hour
 - `2026-10-09T18:57` no_trade skip_entry — no entry slots (positions 15/15, new today 0/2)
 - `2026-10-09T18:57` system **NTAP** — cash settles on pay date; 15% dividend tax reserved
-- `2026-10-08T23:52` system — eod_complete
-- `2026-10-08T19:23` no_trade — no signals crossed action thresholds this hour
-- `2026-10-08T19:23` no_trade skip_entry — no entry slots (positions 15/15, new today 0/2)
 
 _Full decision log: `state/decisions.jsonl` · full history: `state/trader.db`_
