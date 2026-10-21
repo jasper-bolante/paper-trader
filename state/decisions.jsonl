@@ -3267,3 +3267,4 @@
 {"ts": "2026-10-21T18:12:50+00:00", "run_id": "20261021T141240-074158", "kind": "no_trade", "symbol": "CNC", "action": "skip_entry", "detail": {"symbol": "CNC", "rank": 14, "reason": "insufficient investable cash (size $87, need >= $500)"}}
 {"ts": "2026-10-21T18:12:50+00:00", "run_id": "20261021T141240-074158", "kind": "no_trade", "symbol": "CRM", "action": "skip_entry", "detail": {"symbol": "CRM", "rank": 15, "reason": "insufficient investable cash (size $87, need >= $500)"}}
 {"ts": "2026-10-21T18:12:50+00:00", "run_id": "20261021T141240-074158", "kind": "no_trade", "symbol": "IT", "action": "skip_entry", "detail": {"symbol": "IT", "rank": 16, "reason": "insufficient investable cash (size $87, need >= $500)"}}
+{"ts": "2026-10-21T21:55:46+00:00", "run_id": "20261021T175546-0adf15", "kind": "system", "symbol": null, "action": null, "detail": {"event": "eod_complete", "equity": 20592.76, "hwm": 20688.91}}

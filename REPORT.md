@@ -2,7 +2,7 @@
 
 **➜ [Interactive dashboard](https://jasper-bolante.github.io/paper-trader/)** — hover/click any term to learn what it means, toggle the chart lines, and browse full trade history.
 
-_Updated 2026-10-21 18:12 UTC · inception 2026-07-08 · drawdown state: **normal**_
+_Updated 2026-10-21 21:55 UTC · inception 2026-07-08 · drawdown state: **normal**_
 
 ![equity curve](docs/equity_curve.svg)
 
@@ -10,10 +10,10 @@ _Updated 2026-10-21 18:12 UTC · inception 2026-07-08 · drawdown state: **norma
 
 | | |
 |---|---:|
-| **Equity (net of tax reserve)** | **$20,572.55** |
-| Total return since inception | 2.86% |
-| S&P 500 benchmark (same $ , dividends reinvested) | $20,740.95 (3.70%) |
-| Positions value | $18,618.98 |
+| **Equity (net of tax reserve)** | **$20,592.76** |
+| Total return since inception | 2.96% |
+| S&P 500 benchmark (same $ , dividends reinvested) | $20,810.66 (4.05%) |
+| Positions value | $18,639.19 |
 | Settled cash | $1,130.16 |
 | Unsettled cash (T+1) | $838.27 |
 | Tax reserve | $14.86 |
@@ -22,31 +22,31 @@ _Updated 2026-10-21 18:12 UTC · inception 2026-07-08 · drawdown state: **norma
 
 | Metric | Portfolio | Benchmark |
 |---|---:|---:|
-| Total return | 1.64% | 3.52% |
-| Annualized volatility | 11.04% | 11.07% |
-| Sharpe (rf 4%) | 0.20 | 0.77 |
+| Total return | 2.89% | 3.87% |
+| Annualized volatility | 11.19% | 11.01% |
+| Sharpe (rf 4%) | 0.57 | 0.87 |
 | Max drawdown | 4.83% | 3.57% |
-| EOD observations | 74 | 74 |
+| EOD observations | 75 | 75 |
 
 ## Positions
 
 | Symbol | Qty | Avg basis | Last | Value | Unrealized | Stop |
 |---|---:|---:|---:|---:|---:|---:|
-| APA | 19 | $44.15 | $49.85 | $947.15 | $108.26 | $44.90 |
-| CRL | 3 | $296.67 | $344.88 | $1,034.65 | $144.63 | $283.90 |
-| EL | 10 | $105.95 | $104.12 | $1,041.20 | $-18.28 | $95.47 |
-| FFIV | 2 | $448.44 | $456.79 | $913.58 | $16.69 | $431.75 |
-| IQV | 2 | $255.46 | $273.98 | $547.95 | $37.04 | $247.54 |
-| MPC | 3 | $399.06 | $469.12 | $1,407.38 | $210.20 | $436.32 |
-| NTAP | 4 | $214.92 | $216.67 | $866.68 | $7.01 | $193.37 |
-| PLTR | 5 | $194.57 | $199.48 | $997.40 | $24.54 | $175.08 |
-| PSX | 5 | $215.50 | $289.36 | $1,446.80 | $369.32 | $267.61 |
-| RVTY | 9 | $122.75 | $157.14 | $1,414.26 | $309.54 | $141.67 |
-| SPY | 5 | $743.10 | $773.92 | $3,869.62 | $154.12 | — |
-| TECH | 12 | $72.32 | $72.60 | $871.20 | $3.36 | $65.36 |
-| VLO | 3 | $392.61 | $431.28 | $1,293.84 | $116.02 | $413.91 |
-| WST | 2 | $370.69 | $395.22 | $790.44 | $49.06 | $349.94 |
-| ZBRA | 3 | $345.13 | $392.27 | $1,176.82 | $141.44 | $349.27 |
+| APA | 19 | $44.15 | $49.64 | $943.16 | $104.27 | $44.90 |
+| CRL | 3 | $296.67 | $344.83 | $1,034.49 | $144.47 | $310.35 |
+| EL | 10 | $105.95 | $103.70 | $1,037.00 | $-22.48 | $95.47 |
+| FFIV | 2 | $448.44 | $458.32 | $916.64 | $19.75 | $431.75 |
+| IQV | 2 | $255.46 | $276.37 | $552.74 | $41.83 | $248.73 |
+| MPC | 3 | $399.06 | $469.06 | $1,407.18 | $210.01 | $436.32 |
+| NTAP | 4 | $214.92 | $217.30 | $869.20 | $9.53 | $195.57 |
+| PLTR | 5 | $194.57 | $201.71 | $1,008.53 | $35.67 | $181.53 |
+| PSX | 5 | $215.50 | $290.22 | $1,451.10 | $373.62 | $267.61 |
+| RVTY | 9 | $122.75 | $156.71 | $1,410.35 | $305.62 | $141.67 |
+| SPY | 5 | $743.10 | $773.22 | $3,866.10 | $150.60 | — |
+| TECH | 12 | $72.32 | $72.64 | $871.68 | $3.84 | $65.38 |
+| VLO | 3 | $392.61 | $436.65 | $1,309.96 | $132.14 | $413.91 |
+| WST | 2 | $370.69 | $393.72 | $787.44 | $46.06 | $354.35 |
+| ZBRA | 3 | $345.13 | $391.21 | $1,173.63 | $138.25 | $352.09 |
 
 ## Realized gains & tax
 
