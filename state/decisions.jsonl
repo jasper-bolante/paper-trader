@@ -3449,3 +3449,5 @@
 {"ts": "2026-11-05T20:47:43+00:00", "run_id": "20261105T154716-aab980", "kind": "hold", "symbol": "WST", "action": "hold", "detail": {"qty": 2.0, "last": 394.57, "rank": 13, "ma_exit": 359.8188, "held_trading_days": 29, "stop": 374.589}}
 {"ts": "2026-11-05T20:47:43+00:00", "run_id": "20261105T154716-aab980", "kind": "no_trade", "symbol": null, "action": "skip_entry", "detail": {"symbol": null, "reason": "no entries: drawdown state 'no_buys'"}}
 {"ts": "2026-11-05T20:47:43+00:00", "run_id": "20261105T154716-aab980", "kind": "no_trade", "symbol": null, "action": null, "detail": {"reason": "no signals crossed action thresholds this hour", "drawdown_state": "no_buys", "equity": 19155.69, "settled_cash": 6410.16, "positions": 10}}
+{"ts": "2026-11-06T01:29:11+00:00", "run_id": "20261105T202910-7a3ab7", "kind": "system", "symbol": null, "action": null, "detail": {"event": "corporate_actions_synced", "new_rows": 1}}
+{"ts": "2026-11-06T01:29:11+00:00", "run_id": "20261105T202910-7a3ab7", "kind": "system", "symbol": null, "action": null, "detail": {"event": "eod_complete", "equity": 19121.63, "hwm": 20726.58}}
