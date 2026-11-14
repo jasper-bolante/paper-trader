@@ -2,7 +2,7 @@
 
 **➜ [Interactive dashboard](https://jasper-bolante.github.io/paper-trader/)** — hover/click any term to learn what it means, toggle the chart lines, and browse full trade history.
 
-_Updated 2026-11-13 20:37 UTC · inception 2026-07-08 · drawdown state: **no_buys**_
+_Updated 2026-11-14 01:24 UTC · inception 2026-07-08 · drawdown state: **no_buys**_
 
 ![equity curve](docs/equity_curve.svg)
 
@@ -10,10 +10,10 @@ _Updated 2026-11-13 20:37 UTC · inception 2026-07-08 · drawdown state: **no_bu
 
 | | |
 |---|---:|
-| **Equity (net of tax reserve)** | **$19,249.82** |
-| Total return since inception | -3.75% |
-| S&P 500 benchmark (same $ , dividends reinvested) | $20,421.69 (2.11%) |
-| Positions value | $9,200.73 |
+| **Equity (net of tax reserve)** | **$19,230.40** |
+| Total return since inception | -3.85% |
+| S&P 500 benchmark (same $ , dividends reinvested) | $20,284.95 (1.42%) |
+| Positions value | $9,181.31 |
 | Settled cash | $10,058.75 |
 | Unsettled cash (T+1) | $6.23 |
 | Tax reserve | $15.89 |
@@ -22,22 +22,22 @@ _Updated 2026-11-13 20:37 UTC · inception 2026-07-08 · drawdown state: **no_bu
 
 | Metric | Portfolio | Benchmark |
 |---|---:|---:|
-| Total return | -3.77% | 1.93% |
-| Annualized volatility | 12.39% | 14.31% |
-| Sharpe (rf 4%) | -1.13 | 0.17 |
+| Total return | -3.91% | 1.25% |
+| Annualized volatility | 12.33% | 14.28% |
+| Sharpe (rf 4%) | -1.16 | 0.03 |
 | Max drawdown | 7.86% | 6.06% |
-| EOD observations | 91 | 91 |
+| EOD observations | 92 | 92 |
 
 ## Positions
 
 | Symbol | Qty | Avg basis | Last | Value | Unrealized | Stop |
 |---|---:|---:|---:|---:|---:|---:|
-| EL | 10 | $105.95 | $112.38 | $1,123.80 | $64.32 | $102.06 |
-| RVTY | 9 | $122.75 | $155.64 | $1,400.76 | $296.04 | $149.17 |
-| SPY | 5 | $743.10 | $752.70 | $3,763.50 | $48.00 | — |
-| TECH | 12 | $72.32 | $72.81 | $873.66 | $5.82 | $65.55 |
-| VEEV | 4 | $305.03 | $301.77 | $1,207.08 | $-13.04 | $279.52 |
-| WST | 2 | $370.69 | $415.96 | $831.93 | $90.55 | $374.59 |
+| EL | 10 | $105.95 | $111.68 | $1,116.80 | $57.32 | $102.06 |
+| RVTY | 9 | $122.75 | $154.54 | $1,390.86 | $286.14 | $149.17 |
+| SPY | 5 | $743.10 | $752.09 | $3,760.45 | $44.95 | — |
+| TECH | 12 | $72.32 | $72.79 | $873.48 | $5.64 | $65.55 |
+| VEEV | 4 | $305.03 | $301.68 | $1,206.72 | $-13.40 | $279.52 |
+| WST | 2 | $370.69 | $416.50 | $833.00 | $91.62 | $374.85 |
 
 ## Realized gains & tax
 
