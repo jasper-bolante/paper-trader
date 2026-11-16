@@ -3485,3 +3485,4 @@
 {"ts": "2026-11-13T20:37:44+00:00", "run_id": "20261113T153735-0e6475", "kind": "no_trade", "symbol": null, "action": "skip_entry", "detail": {"symbol": null, "reason": "no entries: drawdown state 'no_buys'"}}
 {"ts": "2026-11-13T20:37:44+00:00", "run_id": "20261113T153735-0e6475", "kind": "no_trade", "symbol": null, "action": null, "detail": {"reason": "no signals crossed action thresholds this hour", "drawdown_state": "no_buys", "equity": 19249.82, "settled_cash": 10058.75, "positions": 6}}
 {"ts": "2026-11-14T01:24:35+00:00", "run_id": "20261113T202434-1ae0cb", "kind": "system", "symbol": null, "action": null, "detail": {"event": "eod_complete", "equity": 19230.4, "hwm": 20726.58}}
+{"ts": "2026-11-16T22:59:26+00:00", "run_id": "20261116T175925-d2115f", "kind": "system", "symbol": null, "action": null, "detail": {"event": "eod_complete", "equity": 19080.87, "hwm": 20726.58}}
